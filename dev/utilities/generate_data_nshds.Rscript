@@ -1,0 +1,341 @@
+#!/usr/bin/env Rscript
+here::i_am("dev/utilities/generate_data_nshds.Rscript")
+library(here)
+library(yaml)
+options(tidyverse.quiet = TRUE)
+library(tidyverse)
+source(here("dev/utilities/utilities.R"))
+
+args = commandArgs(trailingOnly = TRUE)
+abspath_lake_yaml <- args[1]  
+abspath_reference <- args[2]  
+dir_template_data <- args[3]
+
+lakesettings <- read_yaml(abspath_lake_yaml)
+nshds_settings <- lakesettings$nshds
+dir_lakedata <- lakesettings$settings$dir_lakedata
+
+dir_bronze <- here(dir_lakedata, lakesettings$settings$dir_bronze, "nshds")
+dir_silver <- here(dir_lakedata, lakesettings$settings$dir_silver, "nshds")
+dir_gold   <- here(dir_lakedata, lakesettings$settings$dir_gold, "nshds")
+dir.create(dir_bronze, recursive = TRUE)
+dir.create(dir_silver, recursive = TRUE)
+dir.create(dir_gold, recursive = TRUE)
+
+# Settings ---- 
+n_individuals <- nshds_settings$n_individuals
+nshds_ind_nrs <- 1:n_individuals
+absdir_template <- here(dir_template_data, "nshds")
+
+# Copy documentation ----
+# Copy mock documentation from template to lake
+dir.create(file.path(dir_bronze, "contracts"), recursive = TRUE)
+dir.create(file.path(dir_bronze, "doc"), recursive = TRUE)
+file.copy(
+  from = 
+    file.path(absdir_template, "contracts") %>% 
+    list.files(full.names = TRUE),
+  to = file.path(dir_bronze, "contracts")
+)
+file.copy(
+  from = file.path(absdir_template, "doc") %>% list.files(full.names = TRUE),
+  to = file.path(dir_bronze, "doc")
+)
+
+# Generate mock-data (bronze) ----
+## Individuals ----
+my_reference <- 
+  abspath_reference %>% 
+  read_tsv(show_col_types = FALSE)
+predict_id <- my_reference$predict_id[nshds_ind_nrs]
+nshds_individuals <- 
+  my_reference %>% 
+  select(-ends_with("freezethaw")) %>% 
+  pivot_longer(
+    cols = vip40_date:vip60_weight,  
+    names_to = c("VIP_yr", ".value"),
+    names_pattern = "^vip(\\d{2})_(\\w+)"
+  )   
+
+## NSHDS template ----
+nshds_template <- 
+  file.path(absdir_template, "nshds_template_mock_gliom_enk190612.tsv") %>% 
+  read_tsv(
+    # minimal template with just a few columns
+    col_types = cols_only(
+      pin = "c",
+      pat_code = "c",
+      delproj = "c", 
+      pdatum = "D", 
+      q_date = "D", 
+      enk = "c",
+      fasta_enk = "c",
+      fasta_prov = "c", 
+      langd = "n", 
+      vikt = "n", 
+      bmi = "n", 
+      midja = "n", 
+      skol = "n", 
+      skol_mo = "n", 
+      hdl = "n",
+      ldl = "n", 
+      stg = "n", 
+      stg_mo = "n", 
+      blods0 = "n", 
+      blods2 = "n", 
+      sambo = "i"
+    )
+  ) %>% 
+  mutate(diff_samp_qnr = pdatum - q_date)
+
+## VIP ----
+vip_template <- 
+  nshds_template %>% 
+  filter(delproj == "VIP") %>% 
+  slice(1:nrow(nshds_individuals)) %>% 
+  select(-pin, pdatum, q_date)
+
+nshds_vip <- 
+  nshds_individuals %>% 
+  bind_cols(vip_template) %>% 
+  mutate(
+    # Retain potential difference between sample- and questionnaire date.
+    # 
+    # `date` represents the mock sample date used together with various 
+    # mock datasets. 
+    pdatum = date,
+    q_date = pdatum + diff_samp_qnr,
+    vikt = weight,               # use the made up values from `individuals`
+    langd = sqrt(vikt/bmi) * 100 # recalculate length to fit made-up `weight`
+    
+  ) %>% 
+  select(
+    -c(birth_date, VIP_yr, weight, date, diff_samp_qnr)
+  ) %>% 
+  relocate(
+    pat_code, .after = predict_id
+  )
+
+
+## MO ---- 
+# Add in MO-data from a few individuals (ind 1-5)
+# MO-samples taken year 1805
+mo_n <- 5
+mo_template <- 
+  nshds_template %>% 
+  filter(delproj == "MO") %>% 
+  slice(1:mo_n) %>% 
+  select(-pin, pdatum, q_date) %>% 
+  mutate(
+    # add predict_id
+    predict_id = my_reference$predict_id[1:mo_n], 
+    sex = my_reference$sex[1:mo_n]
+  ) %>% 
+  select(all_of(names(nshds_vip)), diff_samp_qnr)
+
+
+set.seed(42)
+nshds_mo <- 
+  mo_template %>% 
+  mutate(
+    # MO-samples taken year 1805
+    # Retain potential difference between sample- and questionnaire date.
+    pdatum = 
+      as.Date("1805-01-01") %>% 
+      rep_len(mo_n) +
+      floor(stats::runif(mo_n, min = 0, max = 365)), 
+    q_date = pdatum + diff_samp_qnr
+  ) %>% 
+  # get weight and height from `my_reference`
+  left_join(
+    # use mock weight at 50yo
+    select(my_reference, predict_id, vip50_weight), 
+    by = "predict_id"
+  ) %>% 
+  mutate(
+    # adjust height to fit bmi
+    vikt = vip50_weight, # use the made up values from `individuals`
+    langd = sqrt(vikt/bmi) * 100
+  ) %>% 
+  select(-c(diff_samp_qnr, vip50_weight))
+
+
+## MA ----
+# Add in MA-data from a few individuals (only females; i.e. ind: 3, 4, 7, 8 ...)
+# MA-samples taken year 1805-1810
+ma_n <- 5
+ma_template <- 
+  nshds_template %>% 
+  filter(delproj == "MA") %>% # by definition only females
+  slice(1:ma_n) %>% 
+  select(-pin, pdatum, q_date) %>% 
+  mutate(
+    # add predict_id
+    predict_id = filter(my_reference, sex == "f")$predict_id[1:ma_n], 
+    sex = "f"
+  ) %>% 
+  select(all_of(names(nshds_vip)), diff_samp_qnr)
+
+set.seed(42)
+nshds_ma <- 
+  ma_template %>% 
+  mutate(
+    # MA-samples taken year 1805-1810
+    # Retain potential difference between sample- and questionnaire date.
+    pdatum = 
+      as.Date("1805-01-01") %>% 
+      rep_len(ma_n) +
+      floor(stats::runif(ma_n, min = 0, max = 365 * 5)), 
+    q_date = pdatum + diff_samp_qnr
+  ) %>% 
+  # get weight and hight from `individuals`
+  left_join(
+    # use mock weight at 50yo
+    select(my_reference, predict_id, vip50_weight), 
+    by = "predict_id"
+  ) %>% 
+  mutate(
+    # adjust height to fit bmi
+    vikt = vip50_weight, # use the made up values from `individuals`
+    langd = sqrt(vikt/bmi) * 100
+  ) %>% 
+  select(-c(diff_samp_qnr, vip50_weight))
+
+
+## write to disk ----
+nshds <- bind_rows(nshds_vip, nshds_ma, nshds_mo)
+write_tsv(
+  nshds, 
+  file = file.path(dir_bronze, nshds_settings$filename)
+)
+
+
+# Metadata (Silver) ----
+
+## File ----
+# Copy file metadata from template to lake
+meta_file <- file.path(dir_silver, "meta_file_nshds.yaml")
+file.copy(
+  from = here(nshds_settings$meta_dataset_template), 
+  to = meta_file
+)
+
+## Event - Health ----
+# Metadata describing the health checkup events
+nshds_health_meta_event <- 
+  nshds %>% 
+  select(
+    # drop questionnaire data
+    -c(enk, fasta_enk, q_date)
+  ) %>% 
+  mutate(
+    event_type = "health,sample",
+    sample_type = "plasma",
+    sample_anti_coagulant = "EDTA"
+  ) %>% 
+  rename(
+    event_date = pdatum,
+    sample_setting = delproj,
+    sample_fasting = fasta_prov
+  )
+meta_event_health <- file.path(dir_silver, "meta_event_health.tsv")
+write_tsv(
+  x = nshds_health_meta_event,
+  file = meta_event_health
+)
+
+## Event - Questionnaire ----
+# Index files are created using `elastic::docs_bulk_prep`. Current version
+# (v. 1.2.0) throws the warning:
+#
+#   Warning message:
+#   In sprintf(metadata_fmt, action, index, counter) :
+#     one argument not used by format '{"%s":{"_index":"%s"}}'
+#
+# Presumably the syntax of some the `format` function has changed and the
+# elastic::docs_bulk_prep is not updated accordingly.
+#
+# All seems to work. Warning not critical.
+#
+
+# Metadata describing the questionnaire events
+nshds_questionnaire_meta_event <- 
+  nshds %>% 
+  select(
+    # drop health data
+    -c(pdatum, fasta_prov, langd, vikt, bmi, midja, skol, skol_mo, hdl, ldl, 
+       stg, stg_mo, blods0, blods2
+      )
+  ) %>% 
+  mutate(
+    event_type = "questionnaire"
+  ) %>% 
+  rename(
+    event_date = q_date,
+    event_setting = delproj
+  )
+meta_event_questionnaire <- file.path(dir_silver, "meta_event_questionnaire.tsv")
+write_tsv(
+  x = nshds_questionnaire_meta_event,
+  file = meta_event_questionnaire
+)
+
+## Columns - Health ----
+# Health variables
+meta_column_health <- 
+  basename(nshds_settings$meta_columns_health_template) %>% 
+  here(dir_silver, .)
+file.copy(
+  from = here(nshds_settings$meta_columns_health_template), 
+  to = meta_column_health
+)
+## Columns - Questionnaire ----
+meta_column_questionnaire <- 
+  basename(nshds_settings$meta_columns_questionnaire_template) %>% 
+  here(dir_silver, .)
+file.copy(
+  from = here(nshds_settings$meta_columns_questionnaire_template), 
+  to = meta_column_questionnaire
+)
+
+
+# ES Indices (gold) ----
+## File ----
+idxsettings_file <- nshds_settings$es_indices$index_dataset
+write_esindex(
+  datafile = meta_file, 
+  target_indexfile = file.path(dir_gold, idxsettings_file$index_file), 
+  index_id = idxsettings_file$index_id
+)
+
+## Events - Health ----
+idxsettings_event_health <- nshds_settings$es_indices$index_health_events
+write_esindex(
+  datafile = meta_event_health, 
+  target_indexfile = file.path(dir_gold, idxsettings_event_health$index_file), 
+  index_id = idxsettings_event_health$index_id
+)
+
+## Events - Questionnaire ----
+idxsettings_event_qnr <- nshds_settings$es_indices$index_questionnaire_events
+write_esindex(
+  datafile = meta_event_questionnaire, 
+  target_indexfile = file.path(dir_gold, idxsettings_event_qnr$index_file), 
+  index_id = idxsettings_event_qnr$index_id
+)
+
+## Columns - Health ----
+idxsettings_cols_health <- nshds_settings$es_indices$index_health_columns
+write_esindex(
+  datafile = meta_column_health, 
+  target_indexfile = file.path(dir_gold, idxsettings_cols_health$index_file), 
+  index_id = idxsettings_cols_health$index_id
+)
+
+## Columns - Questionnaire ----
+idxsettings_cols_qnr <- nshds_settings$es_indices$index_questionnaire_columns
+write_esindex(
+  datafile = meta_column_questionnaire, 
+  target_indexfile = file.path(dir_gold, idxsettings_cols_qnr$index_file), 
+  index_id = idxsettings_cols_qnr$index_id
+)

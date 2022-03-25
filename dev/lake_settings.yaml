@@ -1,0 +1,122 @@
+---
+settings:
+  # input
+  dir_template_data: dev/data_templates
+  # output
+  n_tot: 30
+  dir_lakedata: fakelake
+  dir_bronze:   1_bronze
+  dir_silver:   2_silver
+  dir_gold:     3_gold
+
+nshds:  
+  # Data (bronze)
+  n_individuals: 30
+  filename: nshds_mock.tsv
+  # Meta (silver)   
+  # manually constructed yaml-files - copy to lake :)
+  meta_dataset_template:               dev/meta/nshds/meta_file_nshds.yaml
+  meta_columns_health_template:        dev/meta/nshds/meta_health_columns.yaml
+  meta_columns_questionnaire_template: dev/meta/nshds/meta_questionnaire_columns.yaml
+  # ES Indices (gold)
+  es_indices:
+    index_dataset: 
+      index_file: index_data.ndjson
+      index_id:   nshds--dataset
+    index_health_columns:
+      index_file: index_health_columns.ndjson
+      index_id:   nshds--health--columns
+    index_health_events:
+      index_file: index_health_events.ndjson
+      index_id:   nshds--health--events      
+    index_questionnaire_columns:
+      index_file: index_questionnaire_columns.ndjson
+      index_id:   nshds--questionnaire--columns
+    index_questionnaire_events:
+      index_file: index_questionnaire_events.ndjson
+      index_id:   nshds--questionnaire--events
+
+dir_1: 
+  id: x1
+  individuals: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 
+               19, 20]
+  datasets:
+    data_1:
+      # Data (bronze)
+      data_type: metabolon
+      filename: "mock_UMEA-01-19ML+CDT_EDTA_PLASMA_01JAN1789.XLSX"   
+      seed: 42
+      samplesets:
+        set_1:  
+          vip_age: 40yrs
+          add_freeze_thaw: 0
+      # Meta (silver)
+      # manually constructed yaml-files - copy to lake :)
+      meta_dataset_template: dev/meta/x1/meta_file_metabolon_1.yaml
+      # ES Indices (gold)
+      index_dir: 3_gold
+      es_indices:
+        index_dataset: 
+          index_file: index_dataset.ndjson
+          index_id:   data_x1--metabolon--dataset
+        index_analytes:
+          index_file: index_analytes.ndjson
+          index_id:   data_x1--metabolon--analytes        
+        index_events: 
+          index_file: index_events.ndjson
+          index_id:   data_x1--metabolon--events     
+    data_2:
+      # Data (bronze)
+      data_type: olink
+      filename: "mock_Olink_NPX_1791-02-02.csv"
+      seed: 42
+      samplesets:
+        set_1:  
+          vip_age: 40yrs
+          add_freeze_thaw: 0
+      # Meta (silver)
+      # manually constructed yaml-files - copy to lake :)
+      meta_dataset_template: dev/meta/x1/meta_file_olink_1.yaml 
+      # ES Indices (gold)
+      es_indices:
+        index_dataset: 
+          index_file: index_dataset.ndjson
+          index_id:   data_x1--olink--dataset
+        index_analytes:
+          index_file: index_analytes.ndjson
+          index_id:   data_x1--olink--analytes        
+        index_events: 
+          index_file: index_events.ndjson
+          index_id:   data_x1--olink--events                      
+
+dir_2: 
+  id: x2
+  individuals: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 
+                19, 20, 21, 22, 23, 24, 25]
+  datasets:
+    data_1:
+      # Data (bronze)
+      data_type: metabolon  
+      filename: "mock_UMEA-01-19ML+CDT_EDTA_PLASMA_02FEB1792.XLSX"      
+      seed: 42
+      samplesets:      
+        set_1:  
+          vip_age: 40yrs
+          add_freeze_thaw: 1 # = reference + 1
+        set_2:  
+          vip_age: 50yrs
+          add_freeze_thaw: 0 # = reference      
+      # Meta (silver)
+      # manually constructed yaml-files - copy to lake :) 
+      meta_dataset_template: dev/meta/x2/meta_file_metabolon_2.yaml
+      # ES Indices (gold)
+      es_indices:
+        index_dataset: 
+          index_file: index_dataset.ndjson
+          index_id:   data_x2--metabolon--dataset
+        index_analytes:
+          index_file: index_analytes.ndjson
+          index_id:   data_x2--metabolon--analytes        
+        index_events: 
+          index_file: index_events.ndjson
+          index_id:   data_x2--metabolon--events    

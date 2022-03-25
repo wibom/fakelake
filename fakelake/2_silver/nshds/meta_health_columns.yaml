@@ -1,0 +1,244 @@
+predict_id:
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+pat_code:
+  aliases: null
+  class: "Identifier"
+  derivation: null
+  embargo: null
+  label: "patcode"
+  method: null
+  note: >
+    Internal event identifier used at EBF.
+    The code is unique for an individual at an event
+  unit: null
+  validation: null
+  verfified: null
+sex:
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+sample_setting: 
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+event_date: 
+  aliases: null
+  class: 'Date'
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+sample_fasting: 
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+langd: 
+  aliases: ["längd", "body height", "height"]
+  class: 'Anthropometry'
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+vikt: 
+  aliases: null
+  class: 'Anthropometry'
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+bmi: 
+  aliases: null
+  class: 'Anthropometry'
+  derivation: "Calculated from [langd] and [vikt]"
+  embargo: null
+  label: "Body mass index"
+  method: "BMI (kg/m2) = Weight (kg) divided by Height (m) squared"
+  note: "Note that Height is given in cm!"
+  unit: "kg/m2"
+  validation: null
+  verfified: null
+midja: 
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+skol: 
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+skol_mo: 
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+hdl: 
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+ldl: 
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+stg: 
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+stg_mo: 
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+blods0: 
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+blods2: 
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+sambo: 
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+event_type: 
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+sample_type: 
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+sample_anti_coagulant: 
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null

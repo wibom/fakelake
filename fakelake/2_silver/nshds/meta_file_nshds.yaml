@@ -1,0 +1,23 @@
+comment_predict: >
+  Register extract received from EBF on 2019-03-03
+  Updated on 2020-01-01
+subject_terms: [register, extract, VIP, MO, Monica, MA, Mammography, NSHDS, EBF]
+PI:
+  name: PREDICT
+ethics:
+  comment: "PREDICT main Ethics, as of 2021-05-18"
+  1: 
+    type: main
+    dnr: 2018-87-32M
+    date: 2020-01-01
+    comment: optional freetext
+  2: 
+    type: amendment
+    dnr: 2020-09-37Q
+    date: 2022-01-01
+    comment: null
+  3:
+    type: amendment
+    dnr: 2020-09-37QR
+    date: 2022-05-01
+    comment: null

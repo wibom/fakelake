@@ -1,0 +1,101 @@
+predict_id: 
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+pat_code: 
+  aliases: null
+  class: "Identifier"
+  derivation: null
+  embargo: null
+  label: "patcode"
+  method: null
+  note: >
+    Internal event identifier used at EBF.
+    The code is unique for an individual at an event
+  unit: null
+  validation: null
+  verfified: null
+sex: 
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+event_setting: 
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+enk: 
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+fasta_enk: 
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+event_date: 
+  aliases: null
+  class: 'Date'
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+sambo: 
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+event_type: 
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
