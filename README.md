@@ -37,7 +37,16 @@ From R-session with connection to Elastic:
 2. Run `dev/dev/import_indices_to_es.R`
 
 
+## 4. Kibana dataviews
 
+Suggested Kibiana dataviews, based on the index naming scheme used (see: `dev/lake_settings.yaml`)
 
+* `*--analytes`
+* `*--columns`
+* `*--dataset`
+* `*--events`
+* `*--metabolon--events`
+* etc...
 
-
+Whole purpose is to change, evaluate, iterate over this structure, until initial 
+settings that are useful for the project are esablished...
