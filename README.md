@@ -34,7 +34,7 @@ This can for example be done using a Docker-container:
 From R-session with connection to Elastic:
 
 1. Open the Rstudio-project: `PREDICT_LAKE.Rproj`
-2. Run `dev/dev/import_indices_to_es.R`
+2. Run `dev/import_indices_to_es.R`
 
 
 ## 4. Kibana dataviews
