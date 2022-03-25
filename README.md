@@ -12,9 +12,9 @@ Many settings are easily modified from `dev/lake_settings.yaml`. Unfortunately, 
 2. Run: `dev/spinnup_lake.R`
 
 ## 2. Start R-session and connect to Elastic Search  
-This can for example be done by:
+This can for example be done using a Docker-container:
 
-1) Modify  the `elk\docker-compose-predict.yaml` & `compose up`  
+1) Modify  the `elk/docker-compose-predict.yaml` & run `compose up`  
     * modify the `r / volumes:` value to map local path
 
 2) Open R-studio (user: 'rstudio')
