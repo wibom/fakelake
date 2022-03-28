@@ -238,8 +238,8 @@ nshds_health_meta_event <-
   ) %>% 
   rename(
     event_date = pdatum,
-    sample_setting = delproj,
-    sample_fasting = fasta_prov
+    event_setting = delproj,
+    event_fasting = fasta_prov
   )
 meta_event_health <- file.path(dir_silver, "meta_event_health.tsv")
 write_tsv(
