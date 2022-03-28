@@ -86,7 +86,7 @@ for (mydir in datadirs) {
     }
     dataset_meta_yaml <- here(meta_dataset) %>% read_yaml()
     # enter relative file path in meta-yaml to to include in index
-    dataset_meta_yaml$data$filename <- str_remove(abspath_dataset, here())
+    dataset_meta_yaml$dataset$filename <- str_remove(abspath_dataset, here())
     write_yaml(dataset_meta_yaml, abspath_dataset_meta)
 
 
