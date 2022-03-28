@@ -1,6 +1,6 @@
 dataset:
   filename: /fakelake/1_bronze/nshds/nshds_mock.tsv
-'1':
+var1:
   id: predict_id
   aliases: ~
   class: ~
@@ -12,7 +12,7 @@ dataset:
   unit: ~
   validation: ~
   verfified: ~
-'2':
+var2:
   id: pat_code
   aliases: ~
   class: Identifier
@@ -25,7 +25,7 @@ dataset:
   unit: ~
   validation: ~
   verfified: ~
-'3':
+var3:
   id: sex
   aliases: ~
   class: ~
@@ -37,7 +37,7 @@ dataset:
   unit: ~
   validation: ~
   verfified: ~
-'4':
+var4:
   id: sample_setting
   aliases: ~
   class: ~
@@ -49,7 +49,7 @@ dataset:
   unit: ~
   validation: ~
   verfified: ~
-'5':
+var5:
   id: event_date
   aliases: ~
   class: Date
@@ -61,7 +61,7 @@ dataset:
   unit: ~
   validation: ~
   verfified: ~
-'6':
+var6:
   id: sample_fasting
   aliases: ~
   class: ~
@@ -73,7 +73,7 @@ dataset:
   unit: ~
   validation: ~
   verfified: ~
-'7':
+var7:
   id: langd
   aliases:
   - längd
@@ -88,7 +88,7 @@ dataset:
   unit: ~
   validation: ~
   verfified: ~
-'8':
+var8:
   id: vikt
   aliases: ~
   class: Anthropometry
@@ -100,7 +100,7 @@ dataset:
   unit: ~
   validation: ~
   verfified: ~
-'9':
+var9:
   id: bmi
   aliases: ~
   class: Anthropometry
@@ -112,7 +112,7 @@ dataset:
   unit: kg/m2
   validation: ~
   verfified: ~
-'10':
+var10:
   id: midja
   aliases: ~
   class: ~
@@ -124,7 +124,7 @@ dataset:
   unit: ~
   validation: ~
   verfified: ~
-'11':
+var11:
   id: skol
   aliases: ~
   class: ~
@@ -136,7 +136,7 @@ dataset:
   unit: ~
   validation: ~
   verfified: ~
-'12':
+var12:
   id: skol_mo
   aliases: ~
   class: ~
@@ -148,7 +148,7 @@ dataset:
   unit: ~
   validation: ~
   verfified: ~
-'13':
+var13:
   id: hdl
   aliases: ~
   class: ~
@@ -160,7 +160,7 @@ dataset:
   unit: ~
   validation: ~
   verfified: ~
-'14':
+var14:
   id: ldl
   aliases: ~
   class: ~
@@ -172,7 +172,7 @@ dataset:
   unit: ~
   validation: ~
   verfified: ~
-'15':
+var15:
   id: stg
   aliases: ~
   class: ~
@@ -184,7 +184,7 @@ dataset:
   unit: ~
   validation: ~
   verfified: ~
-'17':
+var17:
   id: stg_mo
   aliases: ~
   class: ~
@@ -196,7 +196,7 @@ dataset:
   unit: ~
   validation: ~
   verfified: ~
-'18':
+var18:
   id: blods0
   aliases: ~
   class: ~
@@ -208,7 +208,7 @@ dataset:
   unit: ~
   validation: ~
   verfified: ~
-'19':
+var19:
   id: blods2
   aliases: ~
   class: ~
@@ -220,7 +220,7 @@ dataset:
   unit: ~
   validation: ~
   verfified: ~
-'20':
+var20:
   id: event_type
   aliases: ~
   class: ~
@@ -232,7 +232,7 @@ dataset:
   unit: ~
   validation: ~
   verfified: ~
-'21':
+var21:
   id: sample_type
   aliases: ~
   class: ~
@@ -244,7 +244,7 @@ dataset:
   unit: ~
   validation: ~
   verfified: ~
-'22':
+var22:
   id: sample_anti_coagulant
   aliases: ~
   class: ~

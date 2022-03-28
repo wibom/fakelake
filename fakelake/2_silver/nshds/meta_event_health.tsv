@@ -1,4 +1,4 @@
-predict_id	pat_code	sex	sample_setting	event_date	sample_fasting	langd	vikt	bmi	midja	skol	skol_mo	hdl	ldl	stg	stg_mo	blods0	blods2	event_type	sample_type	sample_anti_coagulant
+predict_id	pat_code	sex	event_setting	event_date	event_fasting	langd	vikt	bmi	midja	skol	skol_mo	hdl	ldl	stg	stg_mo	blods0	blods2	event_type	sample_type	sample_anti_coagulant
 p0000001	2402142907	m	VIP	1760-02-01	1	159.69063172761247	73.18815086268853	28.7	NA	5.55	NA	NA	NA	2.1	NA	6.1	6	health,sample	plasma	EDTA
 p0000001	2455982169	m	VIP	1760-12-10	3	167.8094322226795	75.46881485496681	26.8	NA	6.1	NA	1.25	NA	1.33	NA	6.4	4.8	health,sample	plasma	EDTA
 p0000001	2402212410	m	VIP	1760-02-21	3	158.21157294626843	82.10135795035433	32.8	NA	6.29	NA	NA	1.2	0.8	NA	5.7	5.3	health,sample	plasma	EDTA
