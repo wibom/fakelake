@@ -31,11 +31,6 @@ publicaitons:
   arXive: ~
   other: ~
 dataset:
-  filename: §placeholder_filename§
-  type: proteomics
-  analysesplatform: Olink
-  embargo: '2025-01-01'
-data:
   filename: /fakelake/1_bronze/x1/data_1/mock_UMEA-01-19ML+CDT_EDTA_PLASMA_01JAN1789.XLSX
   type: proteomics
   analysesplatform: Olink

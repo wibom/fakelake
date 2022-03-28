@@ -32,11 +32,6 @@ publicaitons:
     arXive: ~
     other: ~
 dataset:
-  filename: PLACEHOLDER_FILENAME
-  type: proteomics
-  analysesplatform: Olink
-  embargo: '2025-01-01'
-data:
   filename: /fakelake/1_bronze/x1/data_2/mock_Olink_NPX_1791-02-02.csv
   type: proteomics
   analysesplatform: Olink

@@ -1,0 +1,258 @@
+dataset:
+  filename: /fakelake/1_bronze/nshds/nshds_mock.tsv
+'1':
+  id: predict_id
+  aliases: ~
+  class: ~
+  derivation: ~
+  embargo: ~
+  label: ~
+  method: ~
+  note: ~
+  unit: ~
+  validation: ~
+  verfified: ~
+'2':
+  id: pat_code
+  aliases: ~
+  class: Identifier
+  derivation: ~
+  embargo: ~
+  label: patcode
+  method: ~
+  note: |
+    Internal event identifier used at EBF. The code is unique for an individual at an event
+  unit: ~
+  validation: ~
+  verfified: ~
+'3':
+  id: sex
+  aliases: ~
+  class: ~
+  derivation: ~
+  embargo: ~
+  label: ~
+  method: ~
+  note: ~
+  unit: ~
+  validation: ~
+  verfified: ~
+'4':
+  id: sample_setting
+  aliases: ~
+  class: ~
+  derivation: ~
+  embargo: ~
+  label: ~
+  method: ~
+  note: ~
+  unit: ~
+  validation: ~
+  verfified: ~
+'5':
+  id: event_date
+  aliases: ~
+  class: Date
+  derivation: ~
+  embargo: ~
+  label: ~
+  method: ~
+  note: ~
+  unit: ~
+  validation: ~
+  verfified: ~
+'6':
+  id: sample_fasting
+  aliases: ~
+  class: ~
+  derivation: ~
+  embargo: ~
+  label: ~
+  method: ~
+  note: ~
+  unit: ~
+  validation: ~
+  verfified: ~
+'7':
+  id: langd
+  aliases:
+  - längd
+  - body height
+  - height
+  class: Anthropometry
+  derivation: ~
+  embargo: ~
+  label: ~
+  method: ~
+  note: ~
+  unit: ~
+  validation: ~
+  verfified: ~
+'8':
+  id: vikt
+  aliases: ~
+  class: Anthropometry
+  derivation: ~
+  embargo: ~
+  label: ~
+  method: ~
+  note: ~
+  unit: ~
+  validation: ~
+  verfified: ~
+'9':
+  id: bmi
+  aliases: ~
+  class: Anthropometry
+  derivation: Calculated from [langd] and [vikt]
+  embargo: ~
+  label: Body mass index
+  method: BMI (kg/m2) = Weight (kg) divided by Height (m) squared
+  note: Note that Height is given in cm!
+  unit: kg/m2
+  validation: ~
+  verfified: ~
+'10':
+  id: midja
+  aliases: ~
+  class: ~
+  derivation: ~
+  embargo: ~
+  label: ~
+  method: ~
+  note: ~
+  unit: ~
+  validation: ~
+  verfified: ~
+'11':
+  id: skol
+  aliases: ~
+  class: ~
+  derivation: ~
+  embargo: ~
+  label: ~
+  method: ~
+  note: ~
+  unit: ~
+  validation: ~
+  verfified: ~
+'12':
+  id: skol_mo
+  aliases: ~
+  class: ~
+  derivation: ~
+  embargo: ~
+  label: ~
+  method: ~
+  note: ~
+  unit: ~
+  validation: ~
+  verfified: ~
+'13':
+  id: hdl
+  aliases: ~
+  class: ~
+  derivation: ~
+  embargo: ~
+  label: ~
+  method: ~
+  note: ~
+  unit: ~
+  validation: ~
+  verfified: ~
+'14':
+  id: ldl
+  aliases: ~
+  class: ~
+  derivation: ~
+  embargo: ~
+  label: ~
+  method: ~
+  note: ~
+  unit: ~
+  validation: ~
+  verfified: ~
+'15':
+  id: stg
+  aliases: ~
+  class: ~
+  derivation: ~
+  embargo: ~
+  label: ~
+  method: ~
+  note: ~
+  unit: ~
+  validation: ~
+  verfified: ~
+'17':
+  id: stg_mo
+  aliases: ~
+  class: ~
+  derivation: ~
+  embargo: ~
+  label: ~
+  method: ~
+  note: ~
+  unit: ~
+  validation: ~
+  verfified: ~
+'18':
+  id: blods0
+  aliases: ~
+  class: ~
+  derivation: ~
+  embargo: ~
+  label: ~
+  method: ~
+  note: ~
+  unit: ~
+  validation: ~
+  verfified: ~
+'19':
+  id: blods2
+  aliases: ~
+  class: ~
+  derivation: ~
+  embargo: ~
+  label: ~
+  method: ~
+  note: ~
+  unit: ~
+  validation: ~
+  verfified: ~
+'20':
+  id: event_type
+  aliases: ~
+  class: ~
+  derivation: ~
+  embargo: ~
+  label: ~
+  method: ~
+  note: ~
+  unit: ~
+  validation: ~
+  verfified: ~
+'21':
+  id: sample_type
+  aliases: ~
+  class: ~
+  derivation: ~
+  embargo: ~
+  label: ~
+  method: ~
+  note: ~
+  unit: ~
+  validation: ~
+  verfified: ~
+'22':
+  id: sample_anti_coagulant
+  aliases: ~
+  class: ~
+  derivation: ~
+  embargo: ~
+  label: ~
+  method: ~
+  note: ~
+  unit: ~
+  validation: ~
+  verfified: ~

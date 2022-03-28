@@ -30,11 +30,6 @@ publicaitons:
     arXive: ~
     other: ~
 dataset:
-  filename: PLACEHOLDER_FILENAME
-  type: metabolomics
-  analysesplatform: Metabolon
-  embargo: '2030-01-01'
-data:
   filename: /fakelake/1_bronze/x2/data_1/mock_UMEA-01-19ML+CDT_EDTA_PLASMA_02FEB1792.XLSX
   type: metabolomics
   analysesplatform: Metabolon
