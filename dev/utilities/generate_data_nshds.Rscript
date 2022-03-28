@@ -204,21 +204,24 @@ nshds_ma <-
 
 ## write to disk ----
 nshds <- bind_rows(nshds_vip, nshds_ma, nshds_mo)
-write_tsv(
-  nshds, 
-  file = file.path(dir_bronze, nshds_settings$filename)
-)
+nshds_file_bronze <- file.path(dir_bronze, nshds_settings$filename)
+write_tsv(nshds, file = nshds_file_bronze)
 
 
 # Metadata (Silver) ----
+relpath_nshds_file_bronze <- str_remove(nshds_file_bronze, here())
 
 ## File ----
-# Copy file metadata from template to lake
-meta_file <- file.path(dir_silver, "meta_file_nshds.yaml")
-file.copy(
-  from = here(nshds_settings$meta_dataset_template), 
-  to = meta_file
-)
+meta_file_yaml <- 
+  here(nshds_settings$meta_dataset_template) %>% 
+  read_yaml()
+# enter relative file path in meta-yaml to to include in index
+meta_file_yaml$dataset$filename <- relpath_nshds_file_bronze
+
+# Write to silver
+abspath_meta_file_silver <- file.path(dir_silver, "meta_file_nshds.yaml")
+write_yaml(meta_file_yaml, abspath_meta_file_silver)
+
 
 ## Event - Health ----
 # Metadata describing the health checkup events
@@ -226,7 +229,7 @@ nshds_health_meta_event <-
   nshds %>% 
   select(
     # drop questionnaire data
-    -c(enk, fasta_enk, q_date)
+    -c(enk, fasta_enk, q_date, sambo)
   ) %>% 
   mutate(
     event_type = "health,sample",
@@ -280,22 +283,34 @@ write_tsv(
   file = meta_event_questionnaire
 )
 
-## Columns - Health ----
-# Health variables
-meta_column_health <- 
-  basename(nshds_settings$meta_columns_health_template) %>% 
+## Vardict - Health ----
+meta_vardict_health_yaml <- 
+  here(nshds_settings$meta_vardict_health_template) %>% 
+  read_yaml()
+# enter relative file path in meta-yaml to to include in index
+meta_vardict_health_yaml$dataset$filename <- relpath_nshds_file_bronze
+
+# Write to silver
+abspath_meta_vardict_health_silver <- 
+  basename(nshds_settings$meta_vardict_health_template) %>% 
   here(dir_silver, .)
-file.copy(
-  from = here(nshds_settings$meta_columns_health_template), 
-  to = meta_column_health
-)
-## Columns - Questionnaire ----
-meta_column_questionnaire <- 
-  basename(nshds_settings$meta_columns_questionnaire_template) %>% 
+write_yaml(meta_vardict_health_yaml, abspath_meta_vardict_health_silver)
+
+
+## Vardict - Questionnaire ----
+meta_vardict_questionnaire_yaml <- 
+  here(nshds_settings$meta_vardict_questionnaire_template) %>% 
+  read_yaml()
+# enter relative file path in meta-yaml to to include in index
+meta_vardict_questionnaire_yaml$dataset$filename <- relpath_nshds_file_bronze
+
+# Write to silver
+abspath_meta_vardict_questionnaire_silver <- 
+  basename(nshds_settings$meta_vardict_questionnaire_template) %>% 
   here(dir_silver, .)
-file.copy(
-  from = here(nshds_settings$meta_columns_questionnaire_template), 
-  to = meta_column_questionnaire
+write_yaml(
+  meta_vardict_questionnaire_yaml, 
+  abspath_meta_vardict_questionnaire_silver
 )
 
 
@@ -303,7 +318,7 @@ file.copy(
 ## File ----
 idxsettings_file <- nshds_settings$es_indices$index_dataset
 write_esindex(
-  datafile = meta_file, 
+  datafile = abspath_meta_file_silver, 
   target_indexfile = file.path(dir_gold, idxsettings_file$index_file), 
   index_id = idxsettings_file$index_id
 )
@@ -324,18 +339,18 @@ write_esindex(
   index_id = idxsettings_event_qnr$index_id
 )
 
-## Columns - Health ----
-idxsettings_cols_health <- nshds_settings$es_indices$index_health_columns
+## Vardict - Health ----
+idxsettings_vardict_health <- nshds_settings$es_indices$index_health_vardict
 write_esindex(
-  datafile = meta_column_health, 
-  target_indexfile = file.path(dir_gold, idxsettings_cols_health$index_file), 
-  index_id = idxsettings_cols_health$index_id
+  datafile = abspath_meta_vardict_health_silver, 
+  target_indexfile = file.path(dir_gold, idxsettings_vardict_health$index_file), 
+  index_id = idxsettings_vardict_health$index_id
 )
 
-## Columns - Questionnaire ----
-idxsettings_cols_qnr <- nshds_settings$es_indices$index_questionnaire_columns
+## Vardict - Questionnaire ----
+idxsettings_vardict_qnr <- nshds_settings$es_indices$index_questionnaire_vardict
 write_esindex(
-  datafile = meta_column_questionnaire, 
-  target_indexfile = file.path(dir_gold, idxsettings_cols_qnr$index_file), 
-  index_id = idxsettings_cols_qnr$index_id
+  datafile = abspath_meta_vardict_questionnaire_silver, 
+  target_indexfile = file.path(dir_gold, idxsettings_vardict_qnr$index_file), 
+  index_id = idxsettings_vardict_qnr$index_id
 )

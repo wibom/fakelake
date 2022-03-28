@@ -356,7 +356,8 @@ write_esindex <- function(datafile, target_indexfile, index_id) {
     index = index_id,
     #doc_ids = 1:nrow(idx_data),
     path = target_indexfile, 
-    quiet = TRUE
+    quiet = TRUE,
+    digits = 2
   )  
   
 }

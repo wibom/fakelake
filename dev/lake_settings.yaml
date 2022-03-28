@@ -16,22 +16,22 @@ nshds:
   # Meta (silver)   
   # manually constructed yaml-files - copy to lake :)
   meta_dataset_template:               dev/meta_templates/nshds/meta_file_nshds.yaml
-  meta_columns_health_template:        dev/meta_templates/nshds/meta_health_columns.yaml
-  meta_columns_questionnaire_template: dev/meta_templates/nshds/meta_questionnaire_columns.yaml
+  meta_vardict_health_template:        dev/meta_templates/nshds/meta_health_vardict.yaml
+  meta_vardict_questionnaire_template: dev/meta_templates/nshds/meta_questionnaire_vardict.yaml
   # ES Indices (gold)
   es_indices:
     index_dataset: 
       index_file: index_data.ndjson
       index_id:   nshds--dataset
-    index_health_columns:
-      index_file: index_health_columns.ndjson
-      index_id:   nshds--health--columns
+    index_health_vardict:
+      index_file: index_health_vardict.ndjson
+      index_id:   nshds--health--vardict
     index_health_events:
       index_file: index_health_events.ndjson
       index_id:   nshds--health--events      
-    index_questionnaire_columns:
-      index_file: index_questionnaire_columns.ndjson
-      index_id:   nshds--questionnaire--columns
+    index_questionnaire_vardict:
+      index_file: index_questionnaire_vardict.ndjson
+      index_id:   nshds--questionnaire--vardict
     index_questionnaire_events:
       index_file: index_questionnaire_events.ndjson
       index_id:   nshds--questionnaire--events
