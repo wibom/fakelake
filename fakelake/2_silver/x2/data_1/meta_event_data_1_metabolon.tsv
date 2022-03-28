@@ -1,4 +1,4 @@
-predict_id	event_type	event_date	sample_type	sample_anti_coagulant	sample_setting	sample_freezethaw	sample_fasting	case_control	icd_o	data_id	data_filename
+predict_id	event_type	event_date	sample_type	sample_anti_coagulant	sample_setting	sample_freezethaw	sample_fasting	case_control	icd_o	data_id	dataset.filename
 p0000001	sample	1760-02-01	plasma	EDTA	VIP	2	3	case	9440	UMEA-00024	/fakelake/1_bronze/x2/data_1/mock_UMEA-01-19ML+CDT_EDTA_PLASMA_02FEB1792.XLSX
 p0000002	sample	1760-05-09	plasma	EDTA	VIP	2	3	control	NA	UMEA-00049	/fakelake/1_bronze/x2/data_1/mock_UMEA-01-19ML+CDT_EDTA_PLASMA_02FEB1792.XLSX
 p0000003	sample	1752-07-16	plasma	EDTA	VIP	2	3	case	9440	UMEA-00074	/fakelake/1_bronze/x2/data_1/mock_UMEA-01-19ML+CDT_EDTA_PLASMA_02FEB1792.XLSX

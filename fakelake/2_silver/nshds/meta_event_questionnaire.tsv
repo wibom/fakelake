@@ -1,101 +1,101 @@
-predict_id	pat_code	sex	event_setting	enk	fasta_enk	event_date	sambo	event_type
-p0000001	2402142907	m	VIP	apri	1	1760-02-01	1	questionnaire
-p0000001	2455982169	m	VIP	apri	1	1760-12-10	1	questionnaire
-p0000001	2402212410	m	VIP	ac4	1	1760-02-21	3	questionnaire
-p0000002	2456060916	m	VIP	apri	1	1760-05-09	3	questionnaire
-p0000002	2402109696	m	VIP	ac03	1	1761-04-03	1	questionnaire
-p0000002	2402152765	m	VIP	basg	1	1760-05-29	1	questionnaire
-p0000003	2481010202	f	VIP	ac05	1	1752-07-16	3	questionnaire
-p0000003	2402056624	f	VIP	basn	1	1752-02-21	5	questionnaire
-p0000003	2402118249	f	VIP	ac11	8888	1752-08-05	1	questionnaire
-p0000004	2481004594	f	VIP	ac4	1	1759-01-27	1	questionnaire
-p0000004	2418947165	f	VIP	ac05	1	1759-10-05	1	questionnaire
-p0000004	2402143159	f	VIP	ac05	1	1759-02-16	3	questionnaire
-p0000005	2417891093	m	VIP	ac05	8888	1756-10-22	1	questionnaire
-p0000005	2405035156	m	VIP	apri	1	1757-02-12	1	questionnaire
-p0000005	2402137344	m	VIP	ac05	1	1756-11-11	1	questionnaire
-p0000006	2456028235	m	VIP	basn	8888	1755-05-03	3	questionnaire
-p0000006	2480986669	m	VIP	ac4	1	1755-05-27	1	questionnaire
-p0000006	2402162627	m	VIP	bas6	8888	1755-05-23	1	questionnaire
-p0000007	2481022940	f	VIP	ac6	1	1757-12-12	3	questionnaire
-p0000007	2481040167	f	VIP	apri	1	1758-06-13	3	questionnaire
-p0000007	2480975801	f	VIP	ac03	1	1758-01-01	3	questionnaire
-p0000008	2402130131	f	VIP	ac05	1	1750-09-22	5	questionnaire
-p0000008	2525970735	f	VIP	ac03	1	1750-01-08	3	questionnaire
-p0000008	2455035870	f	VIP	bjum	1	1750-10-12	3	questionnaire
-p0000009	2456085309	m	VIP	apri	1	1756-12-28	3	questionnaire
-p0000009	2456002256	m	VIP	NA	8888	1757-05-02	3	questionnaire
-p0000009	2402032881	m	VIP	ac03	1	1757-01-17	1	questionnaire
-p0000010	2480964093	m	VIP	ac4	1	1757-07-26	3	questionnaire
-p0000010	2402119009	m	VIP	ac03	1	1758-01-02	1	questionnaire
-p0000010	2483032496	m	VIP	ly89	1	1757-08-15	3	questionnaire
-p0000011	2483029277	f	VIP	ac6	1	1754-08-08	1	questionnaire
-p0000011	2483012267	f	VIP	ac5	1	1754-07-18	3	questionnaire
-p0000011	2456065239	f	VIP	ac6	1	1754-08-28	3	questionnaire
-p0000012	2462997445	f	VIP	apri	1	1757-09-26	1	questionnaire
-p0000012	2482947570	f	VIP	ac6	1	1758-03-15	1	questionnaire
-p0000012	2402185819	f	VIP	basn	1	1757-10-16	1	questionnaire
-p0000013	2480961995	m	VIP	apri	9999	1760-04-28	3	questionnaire
-p0000013	2418925778	m	VIP	basg	1	1761-03-21	3	questionnaire
-p0000013	2463066172	m	VIP	ac03	1	1760-05-18	1	questionnaire
-p0000014	2402101924	m	VIP	ac6	1	1752-03-04	3	questionnaire
-p0000014	2483009118	m	VIP	vind	1	1751-09-17	3	questionnaire
-p0000014	2483064347	m	VIP	ac5	2	1752-03-24	3	questionnaire
-p0000015	2403046823	f	VIP	ac5	2	1754-08-28	3	questionnaire
-p0000015	2456001748	f	VIP	ac6	1	1754-08-10	5	questionnaire
-p0000015	2482981119	f	VIP	bjum	1	1754-09-17	3	questionnaire
-p0000016	2402050030	f	VIP	ac05	1	1760-05-22	3	questionnaire
-p0000016	2456042199	f	VIP	ac00	1	1761-04-18	3	questionnaire
-p0000016	2483041071	f	VIP	basn	1	1760-06-11	3	questionnaire
-p0000017	2463960935	m	VIP	basg	8888	1760-11-05	1	questionnaire
-p0000017	2418981986	m	VIP	ac00	1	1761-10-30	3	questionnaire
-p0000017	2482985014	m	VIP	ac03	1	1760-11-25	3	questionnaire
-p0000018	2402125838	m	VIP	ac4	1	1750-07-08	1	questionnaire
-p0000018	2456005892	m	VIP	ac05	1	1749-10-12	1	questionnaire
-p0000018	2483003337	m	VIP	basg	1	1750-07-28	1	questionnaire
-p0000019	2481041886	f	VIP	ac4	8888	1754-10-22	1	questionnaire
-p0000019	2483004739	f	VIP	ac00	NA	1754-10-14	1	questionnaire
-p0000019	2482969401	f	VIP	apri	1	1754-11-11	3	questionnaire
-p0000020	2402128798	f	VIP	ac03	1	1755-11-01	1	questionnaire
-p0000020	2402006603	f	VIP	vind	8888	1755-12-25	1	questionnaire
-p0000020	2456031294	f	VIP	ac11	1	1755-11-21	5	questionnaire
-p0000021	2480967812	m	VIP	ac03	8888	1759-12-15	2	questionnaire
-p0000021	2481951917	m	VIP	ac5	8888	1760-10-15	1	questionnaire
-p0000021	2456028261	m	VIP	apri	1	1760-01-04	5	questionnaire
-p0000022	2455097663	m	VIP	ac5	1	1750-10-10	5	questionnaire
-p0000022	2456025626	m	VIP	ac03	8888	NA	1	questionnaire
-p0000022	2417901503	m	VIP	ac6	1	1750-10-30	1	questionnaire
-p0000023	2402147719	f	VIP	ac4	1	NA	1	questionnaire
-p0000023	2482953662	f	VIP	ac4	8888	1761-12-23	3	questionnaire
-p0000023	2482984003	f	VIP	apri	8888	NA	3	questionnaire
-p0000024	2482922941	f	VIP	ac05	8888	1760-06-20	1	questionnaire
-p0000024	2456015255	f	VIP	ac4	8888	1761-05-22	1	questionnaire
-p0000024	2480976045	f	VIP	apri	1	1760-07-10	3	questionnaire
-p0000025	2456065241	m	VIP	ac4	8888	1750-02-05	1	questionnaire
-p0000025	2402046931	m	VIP	ac5	1	1749-04-16	1	questionnaire
-p0000025	2402159456	m	VIP	ac05	8888	1750-02-25	3	questionnaire
-p0000026	2456033370	m	VIP	ac03	1	1755-04-12	3	questionnaire
-p0000026	2402155076	m	VIP	basg	1	1755-05-02	3	questionnaire
-p0000026	2460992295	m	VIP	ac00	8888	1755-05-02	1	questionnaire
-p0000027	2483017244	f	VIP	ac00	8888	1753-10-15	3	questionnaire
-p0000027	2482957380	f	VIP	basn	1	1753-08-06	NA	questionnaire
-p0000027	2419011063	f	VIP	ac4	1	1753-11-04	1	questionnaire
-p0000028	2402174271	f	VIP	bjum	1	1759-12-23	3	questionnaire
-p0000028	2455069054	f	VIP	basg	8888	1760-10-24	1	questionnaire
-p0000028	2455996546	f	VIP	bas6	1	1760-01-12	1	questionnaire
-p0000029	2456050112	m	VIP	ac4	1	1754-06-22	3	questionnaire
-p0000029	2456043702	m	VIP	ac5	1	1754-05-24	3	questionnaire
-p0000029	2456003264	m	VIP	no90	9999	1754-07-12	2	questionnaire
-p0000030	2526019164	m	VIP	ac6	1	1759-02-21	3	questionnaire
-p0000030	2402168673	m	VIP	ac03	1	1759-11-03	3	questionnaire
-p0000030	2402115324	m	VIP	ac4	1	1759-03-13	3	questionnaire
-p0000003	2483012150	f	MA	NA	NA	1809-07-27	NA	questionnaire
-p0000004	2480977255	f	MA	NA	NA	1809-09-07	NA	questionnaire
-p0000007	2456008529	f	MA	MA	NA	NA	NA	questionnaire
-p0000008	2456034975	f	MA	MA	NA	NA	NA	questionnaire
-p0000011	2402140359	f	MA	MA	NA	1808-03-13	NA	questionnaire
-p0000001	2402031362	m	MO	MO	8888	1805-11-30	9999	questionnaire
-p0000002	2402109375	m	MO	MO	8888	1805-12-09	9999	questionnaire
-p0000003	2482980559	f	MO	MO	8888	1805-04-15	4	questionnaire
-p0000004	2456008243	f	MO	MO	8888	1805-10-31	9999	questionnaire
-p0000005	2480956194	m	MO	MO	8888	1805-08-23	1	questionnaire
+predict_id	pat_code	sex	event_setting	enk	fasta_enk	event_date	sambo	event_type	dataset.filename
+p0000001	2402142907	m	VIP	apri	1	1760-02-01	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000001	2455982169	m	VIP	apri	1	1760-12-10	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000001	2402212410	m	VIP	ac4	1	1760-02-21	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000002	2456060916	m	VIP	apri	1	1760-05-09	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000002	2402109696	m	VIP	ac03	1	1761-04-03	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000002	2402152765	m	VIP	basg	1	1760-05-29	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000003	2481010202	f	VIP	ac05	1	1752-07-16	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000003	2402056624	f	VIP	basn	1	1752-02-21	5	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000003	2402118249	f	VIP	ac11	8888	1752-08-05	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000004	2481004594	f	VIP	ac4	1	1759-01-27	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000004	2418947165	f	VIP	ac05	1	1759-10-05	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000004	2402143159	f	VIP	ac05	1	1759-02-16	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000005	2417891093	m	VIP	ac05	8888	1756-10-22	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000005	2405035156	m	VIP	apri	1	1757-02-12	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000005	2402137344	m	VIP	ac05	1	1756-11-11	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000006	2456028235	m	VIP	basn	8888	1755-05-03	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000006	2480986669	m	VIP	ac4	1	1755-05-27	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000006	2402162627	m	VIP	bas6	8888	1755-05-23	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000007	2481022940	f	VIP	ac6	1	1757-12-12	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000007	2481040167	f	VIP	apri	1	1758-06-13	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000007	2480975801	f	VIP	ac03	1	1758-01-01	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000008	2402130131	f	VIP	ac05	1	1750-09-22	5	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000008	2525970735	f	VIP	ac03	1	1750-01-08	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000008	2455035870	f	VIP	bjum	1	1750-10-12	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000009	2456085309	m	VIP	apri	1	1756-12-28	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000009	2456002256	m	VIP	NA	8888	1757-05-02	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000009	2402032881	m	VIP	ac03	1	1757-01-17	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000010	2480964093	m	VIP	ac4	1	1757-07-26	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000010	2402119009	m	VIP	ac03	1	1758-01-02	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000010	2483032496	m	VIP	ly89	1	1757-08-15	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000011	2483029277	f	VIP	ac6	1	1754-08-08	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000011	2483012267	f	VIP	ac5	1	1754-07-18	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000011	2456065239	f	VIP	ac6	1	1754-08-28	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000012	2462997445	f	VIP	apri	1	1757-09-26	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000012	2482947570	f	VIP	ac6	1	1758-03-15	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000012	2402185819	f	VIP	basn	1	1757-10-16	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000013	2480961995	m	VIP	apri	9999	1760-04-28	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000013	2418925778	m	VIP	basg	1	1761-03-21	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000013	2463066172	m	VIP	ac03	1	1760-05-18	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000014	2402101924	m	VIP	ac6	1	1752-03-04	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000014	2483009118	m	VIP	vind	1	1751-09-17	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000014	2483064347	m	VIP	ac5	2	1752-03-24	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000015	2403046823	f	VIP	ac5	2	1754-08-28	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000015	2456001748	f	VIP	ac6	1	1754-08-10	5	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000015	2482981119	f	VIP	bjum	1	1754-09-17	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000016	2402050030	f	VIP	ac05	1	1760-05-22	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000016	2456042199	f	VIP	ac00	1	1761-04-18	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000016	2483041071	f	VIP	basn	1	1760-06-11	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000017	2463960935	m	VIP	basg	8888	1760-11-05	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000017	2418981986	m	VIP	ac00	1	1761-10-30	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000017	2482985014	m	VIP	ac03	1	1760-11-25	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000018	2402125838	m	VIP	ac4	1	1750-07-08	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000018	2456005892	m	VIP	ac05	1	1749-10-12	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000018	2483003337	m	VIP	basg	1	1750-07-28	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000019	2481041886	f	VIP	ac4	8888	1754-10-22	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000019	2483004739	f	VIP	ac00	NA	1754-10-14	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000019	2482969401	f	VIP	apri	1	1754-11-11	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000020	2402128798	f	VIP	ac03	1	1755-11-01	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000020	2402006603	f	VIP	vind	8888	1755-12-25	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000020	2456031294	f	VIP	ac11	1	1755-11-21	5	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000021	2480967812	m	VIP	ac03	8888	1759-12-15	2	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000021	2481951917	m	VIP	ac5	8888	1760-10-15	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000021	2456028261	m	VIP	apri	1	1760-01-04	5	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000022	2455097663	m	VIP	ac5	1	1750-10-10	5	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000022	2456025626	m	VIP	ac03	8888	NA	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000022	2417901503	m	VIP	ac6	1	1750-10-30	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000023	2402147719	f	VIP	ac4	1	NA	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000023	2482953662	f	VIP	ac4	8888	1761-12-23	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000023	2482984003	f	VIP	apri	8888	NA	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000024	2482922941	f	VIP	ac05	8888	1760-06-20	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000024	2456015255	f	VIP	ac4	8888	1761-05-22	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000024	2480976045	f	VIP	apri	1	1760-07-10	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000025	2456065241	m	VIP	ac4	8888	1750-02-05	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000025	2402046931	m	VIP	ac5	1	1749-04-16	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000025	2402159456	m	VIP	ac05	8888	1750-02-25	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000026	2456033370	m	VIP	ac03	1	1755-04-12	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000026	2402155076	m	VIP	basg	1	1755-05-02	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000026	2460992295	m	VIP	ac00	8888	1755-05-02	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000027	2483017244	f	VIP	ac00	8888	1753-10-15	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000027	2482957380	f	VIP	basn	1	1753-08-06	NA	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000027	2419011063	f	VIP	ac4	1	1753-11-04	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000028	2402174271	f	VIP	bjum	1	1759-12-23	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000028	2455069054	f	VIP	basg	8888	1760-10-24	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000028	2455996546	f	VIP	bas6	1	1760-01-12	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000029	2456050112	m	VIP	ac4	1	1754-06-22	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000029	2456043702	m	VIP	ac5	1	1754-05-24	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000029	2456003264	m	VIP	no90	9999	1754-07-12	2	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000030	2526019164	m	VIP	ac6	1	1759-02-21	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000030	2402168673	m	VIP	ac03	1	1759-11-03	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000030	2402115324	m	VIP	ac4	1	1759-03-13	3	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000003	2483012150	f	MA	NA	NA	1809-07-27	NA	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000004	2480977255	f	MA	NA	NA	1809-09-07	NA	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000007	2456008529	f	MA	MA	NA	NA	NA	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000008	2456034975	f	MA	MA	NA	NA	NA	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000011	2402140359	f	MA	MA	NA	1808-03-13	NA	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000001	2402031362	m	MO	MO	8888	1805-11-30	9999	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000002	2402109375	m	MO	MO	8888	1805-12-09	9999	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000003	2482980559	f	MO	MO	8888	1805-04-15	4	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000004	2456008243	f	MO	MO	8888	1805-10-31	9999	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
+p0000005	2480956194	m	MO	MO	8888	1805-08-23	1	questionnaire	/fakelake/1_bronze/nshds/nshds_mock.tsv
