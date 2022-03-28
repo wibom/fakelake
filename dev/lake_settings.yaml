@@ -15,9 +15,9 @@ nshds:
   filename: nshds_mock.tsv
   # Meta (silver)   
   # manually constructed yaml-files - copy to lake :)
-  meta_dataset_template:               dev/meta/nshds/meta_file_nshds.yaml
-  meta_columns_health_template:        dev/meta/nshds/meta_health_columns.yaml
-  meta_columns_questionnaire_template: dev/meta/nshds/meta_questionnaire_columns.yaml
+  meta_dataset_template:               dev/meta_templates/nshds/meta_file_nshds.yaml
+  meta_columns_health_template:        dev/meta_templates/nshds/meta_health_columns.yaml
+  meta_columns_questionnaire_template: dev/meta_templates/nshds/meta_questionnaire_columns.yaml
   # ES Indices (gold)
   es_indices:
     index_dataset: 
@@ -52,7 +52,7 @@ dir_1:
           add_freeze_thaw: 0
       # Meta (silver)
       # manually constructed yaml-files - copy to lake :)
-      meta_dataset_template: dev/meta/x1/meta_file_metabolon_1.yaml
+      meta_dataset_template: dev/meta_templates/x1/meta_file_metabolon_1.yaml
       # ES Indices (gold)
       index_dir: 3_gold
       es_indices:
@@ -76,7 +76,7 @@ dir_1:
           add_freeze_thaw: 0
       # Meta (silver)
       # manually constructed yaml-files - copy to lake :)
-      meta_dataset_template: dev/meta/x1/meta_file_olink_1.yaml 
+      meta_dataset_template: dev/meta_templates/x1/meta_file_olink_1.yaml 
       # ES Indices (gold)
       es_indices:
         index_dataset: 
@@ -108,7 +108,7 @@ dir_2:
           add_freeze_thaw: 0 # = reference      
       # Meta (silver)
       # manually constructed yaml-files - copy to lake :) 
-      meta_dataset_template: dev/meta/x2/meta_file_metabolon_2.yaml
+      meta_dataset_template: dev/meta_templates/x2/meta_file_metabolon_2.yaml
       # ES Indices (gold)
       es_indices:
         index_dataset: 
