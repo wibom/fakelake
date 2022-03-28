@@ -31,3 +31,4 @@ ethics:
     comment: ~
 dataset:
   filename: /fakelake/1_bronze/nshds/nshds_mock.tsv
+  type: register
