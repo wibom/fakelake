@@ -61,8 +61,8 @@ The `fakelake` folder contains mock data that mimic some data expected to be hel
 As a first attempt I've simply structured the data as:
 
 1) `1_bronze`: raw data
-2) `2_silver`: meta data (typically manually curated)
-3) `3_gold`: Elasticsearch indices (.ndjson)
+2) `2_silver`: meta data (generated/curated by PREDICT stewards)
+3) `3_gold`: Elasticsearch indices (e.g. metadata formated to .ndjson)
 
 
 ## (Re-) Generating `fakelake`
