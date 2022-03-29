@@ -64,20 +64,19 @@ print(filenames)
 ## b) get individuals included in each dataset
 
 This **does not** work:
-```{r, eval = FALSE}
-
-# -- NOT RUN -- 
-
+```{r}
 # get individuals from a file
 get_individuals_in_dataset <- function(filename) {
-  browser()
+  # To achieve double escaped forward slashes (necessary for use in ES-query),
+  # we need quadruple escape as input to `glue::glue`
+  quadruple_escaped_path <- filename %>% str_replace_all("/", "\\\\\\\\/")
   body <- glue(
     '{{
       "size": 0,
       "query": {{
         "query_string": {{
           "default_field": "dataset.filename",
-          "query": "{filename}"
+          "query": "{quadruple_escaped_path}"
         }}
       }},
       "aggs": {{
@@ -94,88 +93,19 @@ get_individuals_in_dataset <- function(filename) {
 individuals_per_file <- map(filenames, get_individuals_in_dataset)
 ```
 
-The above code works for the first file (`"/fakelake/1_bronze/nshds/nshds_mock.tsv"`), but breaks for all the other files.
-
-
-### Investigate error:
-
-Querying ES from `Kibana > Dev Tools`, gives:
-
-```{r, engine='python', eval=FALSE, python.reticulate=FALSE}
-# This returns an error:
-GET /_search
-{
-  "size": 0,
-  "query": {
-    "query_string": {
-      "default_field": "dataset.filename",
-      "query": "1_bronze/x2/data_1/mock_UMEA-01-19ML+CDT_EDTA_PLASMA_02FEB1792.XLSX"
-    }
-  }, 
-  "aggs": {
-    "individuals": {
-      "terms": {"field": "predict_id.keyword", "size": 500}
-    }
-  }
-}
-
-# But this works:
-GET /_search
-{
-  "size": 0,
-  "query": {
-    "query_string": {
-      "default_field": "dataset.filename",
-      "query": "x2/data_1/mock_UMEA-01-19ML+CDT_EDTA_PLASMA_02FEB1792.XLSX"
-    }
-  }, 
-  "aggs": {
-    "individuals": {
-      "terms": {"field": "predict_id.keyword", "size": 500}
-    }
-  }
-}
-
-# Further tests:
-# query: "/fakelake/1_bronze/x2/data_1"      -- works
-# query: "\/fakelake\/1_bronze\/x2\/data_1*" -- works
-# query: "/fakelake/1_bronze/x2/data_1*"     -- works
-# query: "/fakelake/1_bronze/x2/data_1/*"    -- error
-# query: "1_bronze/x2/data_1/mock_UMEA-01-19ML+CDT_EDTA_PLASMA_02FEB1792.XLSX" -- error
-
+```{r}
+print(individuals_per_file)
 ```
 
-Why is this? Here it is suggested it may be solved by different mapping:   https://stackoverflow.com/a/27712853
 
-Retrieve current mapping (from `Kibana/Dev Tools`):
-```{r, engine = 'python', eval = FALSE, python.reticulate=FALSE}
-GET data_x2--metabolon--dataset/_mapping/field/dataset.filename
+> Incorrect query result: 
+>
+> * Query returns all 30 individuals as included in each file
+> * Both `x1` files contain only individuals 1-20
+> * The `x2` file contains only individuals 1-25
 
-# returns:
-{
-  "data_x2--metabolon--dataset" : {
-    "mappings" : {
-      "dataset.filename" : {
-        "full_name" : "dataset.filename",
-        "mapping" : {
-          "filename" : {
-            "type" : "text",
-            "fields" : {
-              "keyword" : {
-                "type" : "keyword",
-                "ignore_above" : 256
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-```
 
-> But, if it's a mapping issue I'd have thought that it would error for all
-queries used above... ?
+Must figure out how to re-formulate query to get accurate result.
 
 
 # Query 2

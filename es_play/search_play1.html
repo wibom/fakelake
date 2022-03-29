@@ -370,18 +370,18 @@ div.tocify {
 <div id="b-get-individuals-included-in-each-dataset" class="section level2">
 <h2>b) get individuals included in each dataset</h2>
 <p>This <strong>does not</strong> work:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- NOT RUN -- </span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># get individuals from a file</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>get_individuals_in_dataset <span class="ot">&lt;-</span> <span class="cf">function</span>(filename) {</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">browser</span>()</span>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get individuals from a file</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>get_individuals_in_dataset <span class="ot">&lt;-</span> <span class="cf">function</span>(filename) {</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># To achieve double escaped forward slashes (necessary for use in ES-query),</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># we need quadruple escape as input to `glue::glue`</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  quadruple_escaped_path <span class="ot">&lt;-</span> filename <span class="sc">%&gt;%</span> <span class="fu">str_replace_all</span>(<span class="st">&quot;/&quot;</span>, <span class="st">&quot;</span><span class="sc">\\\\\\\\</span><span class="st">/&quot;</span>)</span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  body <span class="ot">&lt;-</span> <span class="fu">glue</span>(</span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;{{</span></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="st">      &quot;size&quot;: 0,</span></span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="st">      &quot;query&quot;: {{</span></span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="st">        &quot;query_string&quot;: {{</span></span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="st">          &quot;default_field&quot;: &quot;dataset.filename&quot;,</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="st">          &quot;query&quot;: &quot;{filename}&quot;</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="st">          &quot;query&quot;: &quot;{quadruple_escaped_path}&quot;</span></span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="st">        }}</span></span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="st">      }},</span></span>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="st">      &quot;aggs&quot;: {{</span></span>
@@ -396,79 +396,43 @@ div.tocify {
 <span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  individuals <span class="ot">&lt;-</span> <span class="fu">map_chr</span>(res<span class="sc">$</span>aggregations<span class="sc">$</span>individuals<span class="sc">$</span>buckets, <span class="sc">~</span> ..<span class="dv">1</span><span class="sc">$</span>key)  </span>
 <span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>individuals_per_file <span class="ot">&lt;-</span> <span class="fu">map</span>(filenames, get_individuals_in_dataset)</span></code></pre></div>
-<p>The above code works for the first file (<code>&quot;/fakelake/1_bronze/nshds/nshds_mock.tsv&quot;</code>), but breaks for all the other files.</p>
-<div id="investigate-error" class="section level3">
-<h3>Investigate error:</h3>
-<p>Querying ES from <code>Kibana &gt; Dev Tools</code>, gives:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This returns an error:</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>GET <span class="op">/</span>_search</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;size&quot;</span>: <span class="dv">0</span>,</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;query&quot;</span>: {</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;query_string&quot;</span>: {</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;default_field&quot;</span>: <span class="st">&quot;dataset.filename&quot;</span>,</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;query&quot;</span>: <span class="st">&quot;1_bronze/x2/data_1/mock_UMEA-01-19ML+CDT_EDTA_PLASMA_02FEB1792.XLSX&quot;</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  }, </span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;aggs&quot;</span>: {</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;individuals&quot;</span>: {</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;terms&quot;</span>: {<span class="st">&quot;field&quot;</span>: <span class="st">&quot;predict_id.keyword&quot;</span>, <span class="st">&quot;size&quot;</span>: <span class="dv">500</span>}</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co"># But this works:</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>GET <span class="op">/</span>_search</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;size&quot;</span>: <span class="dv">0</span>,</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;query&quot;</span>: {</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;query_string&quot;</span>: {</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;default_field&quot;</span>: <span class="st">&quot;dataset.filename&quot;</span>,</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;query&quot;</span>: <span class="st">&quot;x2/data_1/mock_UMEA-01-19ML+CDT_EDTA_PLASMA_02FEB1792.XLSX&quot;</span></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>  }, </span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;aggs&quot;</span>: {</span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;individuals&quot;</span>: {</span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;terms&quot;</span>: {<span class="st">&quot;field&quot;</span>: <span class="st">&quot;predict_id.keyword&quot;</span>, <span class="st">&quot;size&quot;</span>: <span class="dv">500</span>}</span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Further tests:</span></span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a><span class="co"># query: &quot;/fakelake/1_bronze/x2/data_1&quot;      -- works</span></span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a><span class="co"># query: &quot;\/fakelake\/1_bronze\/x2\/data_1*&quot; -- works</span></span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="co"># query: &quot;/fakelake/1_bronze/x2/data_1*&quot;     -- works</span></span>
-<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="co"># query: &quot;/fakelake/1_bronze/x2/data_1/*&quot;    -- error</span></span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a><span class="co"># query: &quot;1_bronze/x2/data_1/mock_UMEA-01-19ML+CDT_EDTA_PLASMA_02FEB1792.XLSX&quot; -- error</span></span></code></pre></div>
-<p>Why is this? Here it is suggested it may be solved by different mapping: <a href="https://stackoverflow.com/a/27712853" class="uri">https://stackoverflow.com/a/27712853</a></p>
-<p>Retrieve current mapping (from <code>Kibana/Dev Tools</code>):</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>GET data_x2<span class="op">--</span>metabolon<span class="op">--</span>dataset<span class="op">/</span>_mapping<span class="op">/</span>field<span class="op">/</span>dataset.filename</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># returns:</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data_x2--metabolon--dataset&quot;</span> : {</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;mappings&quot;</span> : {</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;dataset.filename&quot;</span> : {</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;full_name&quot;</span> : <span class="st">&quot;dataset.filename&quot;</span>,</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;mapping&quot;</span> : {</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>          <span class="st">&quot;filename&quot;</span> : {</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;type&quot;</span> : <span class="st">&quot;text&quot;</span>,</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;fields&quot;</span> : {</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>              <span class="st">&quot;keyword&quot;</span> : {</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;type&quot;</span> : <span class="st">&quot;keyword&quot;</span>,</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;ignore_above&quot;</span> : <span class="dv">256</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>              }</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>            }</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>          }</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(individuals_per_file)</span></code></pre></div>
+<pre><code>## [[1]]
+##  [1] &quot;p0000003&quot; &quot;p0000004&quot; &quot;p0000001&quot; &quot;p0000002&quot; &quot;p0000005&quot; &quot;p0000007&quot;
+##  [7] &quot;p0000008&quot; &quot;p0000011&quot; &quot;p0000006&quot; &quot;p0000009&quot; &quot;p0000010&quot; &quot;p0000012&quot;
+## [13] &quot;p0000013&quot; &quot;p0000014&quot; &quot;p0000015&quot; &quot;p0000016&quot; &quot;p0000017&quot; &quot;p0000018&quot;
+## [19] &quot;p0000019&quot; &quot;p0000020&quot; &quot;p0000021&quot; &quot;p0000022&quot; &quot;p0000023&quot; &quot;p0000024&quot;
+## [25] &quot;p0000025&quot; &quot;p0000026&quot; &quot;p0000027&quot; &quot;p0000028&quot; &quot;p0000029&quot; &quot;p0000030&quot;
+## 
+## [[2]]
+##  [1] &quot;p0000003&quot; &quot;p0000004&quot; &quot;p0000001&quot; &quot;p0000002&quot; &quot;p0000005&quot; &quot;p0000007&quot;
+##  [7] &quot;p0000008&quot; &quot;p0000011&quot; &quot;p0000006&quot; &quot;p0000009&quot; &quot;p0000010&quot; &quot;p0000012&quot;
+## [13] &quot;p0000013&quot; &quot;p0000014&quot; &quot;p0000015&quot; &quot;p0000016&quot; &quot;p0000017&quot; &quot;p0000018&quot;
+## [19] &quot;p0000019&quot; &quot;p0000020&quot; &quot;p0000021&quot; &quot;p0000022&quot; &quot;p0000023&quot; &quot;p0000024&quot;
+## [25] &quot;p0000025&quot; &quot;p0000026&quot; &quot;p0000027&quot; &quot;p0000028&quot; &quot;p0000029&quot; &quot;p0000030&quot;
+## 
+## [[3]]
+##  [1] &quot;p0000003&quot; &quot;p0000004&quot; &quot;p0000001&quot; &quot;p0000002&quot; &quot;p0000005&quot; &quot;p0000007&quot;
+##  [7] &quot;p0000008&quot; &quot;p0000011&quot; &quot;p0000006&quot; &quot;p0000009&quot; &quot;p0000010&quot; &quot;p0000012&quot;
+## [13] &quot;p0000013&quot; &quot;p0000014&quot; &quot;p0000015&quot; &quot;p0000016&quot; &quot;p0000017&quot; &quot;p0000018&quot;
+## [19] &quot;p0000019&quot; &quot;p0000020&quot; &quot;p0000021&quot; &quot;p0000022&quot; &quot;p0000023&quot; &quot;p0000024&quot;
+## [25] &quot;p0000025&quot; &quot;p0000026&quot; &quot;p0000027&quot; &quot;p0000028&quot; &quot;p0000029&quot; &quot;p0000030&quot;
+## 
+## [[4]]
+##  [1] &quot;p0000003&quot; &quot;p0000004&quot; &quot;p0000001&quot; &quot;p0000002&quot; &quot;p0000005&quot; &quot;p0000007&quot;
+##  [7] &quot;p0000008&quot; &quot;p0000011&quot; &quot;p0000006&quot; &quot;p0000009&quot; &quot;p0000010&quot; &quot;p0000012&quot;
+## [13] &quot;p0000013&quot; &quot;p0000014&quot; &quot;p0000015&quot; &quot;p0000016&quot; &quot;p0000017&quot; &quot;p0000018&quot;
+## [19] &quot;p0000019&quot; &quot;p0000020&quot; &quot;p0000021&quot; &quot;p0000022&quot; &quot;p0000023&quot; &quot;p0000024&quot;
+## [25] &quot;p0000025&quot; &quot;p0000026&quot; &quot;p0000027&quot; &quot;p0000028&quot; &quot;p0000029&quot; &quot;p0000030&quot;</code></pre>
 <blockquote>
-<p>But, if it’s a mapping issue I’d have thought that it would error for all queries used above… ?</p>
+<p>Incorrect query result:</p>
+<ul>
+<li>Query returns all 30 individuals as included in each file</li>
+<li>Both <code>x1</code> files contain only individuals 1-20</li>
+<li>The <code>x2</code> file contains only individuals 1-25</li>
+</ul>
 </blockquote>
-</div>
+<p>Must figure out how to re-formulate query to get accurate result.</p>
 </div>
 </div>
 <div id="query-2" class="section level1">
