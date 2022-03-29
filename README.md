@@ -141,6 +141,7 @@ Pretending to query the `fakelake`:
 
 # Current issues
 
+# Resolved issues :)
 ## Quering for filepaths
 Using the Kibana `Dev Tools` console:
 
@@ -208,6 +209,33 @@ GET /_search
 
 # query: "x2/data_1/mock_UMEA-01-19ML+CDT_EDTA_PLASMA_02FEB1792.XLSX"          -- works
 # query: "1_bronze/x2/data_1/mock_UMEA-01-19ML+CDT_EDTA_PLASMA_02FEB1792.XLSX" -- error
-```
 
-No idea why at the moment...
+# ==============================================================================
+# More structured tests:
+# query: "/fakelake/1_bronze/x2/data_1/mock_UMEA-01-19ML+CDT_EDTA_PLASMA_02FEB1792.XLSX" -- error (original query)
+# query: "fakelake/1_bronze/x2/data_1/mock_UMEA-01-19ML+CDT_EDTA_PLASMA_02FEB1792.XLSX" -- ok
+
+# query: "/1_bronze/x2/data_1/mock_UMEA-01-19ML+CDT_EDTA_PLASMA_02FEB1792.XLSX" -- ok
+# query: "1_bronze/x2/data_1/mock_UMEA-01-19ML+CDT_EDTA_PLASMA_02FEB1792.XLSX" -- error
+
+# query: "/x2/data_1/mock_UMEA-01-19ML+CDT_EDTA_PLASMA_02FEB1792.XLSX" -- error
+# query: "x2/data_1/mock_UMEA-01-19ML+CDT_EDTA_PLASMA_02FEB1792.XLSX" -- ok
+
+# query: "/data_1/mock_UMEA-01-19ML+CDT_EDTA_PLASMA_02FEB1792.XLSX" -- ok
+# query: "data_1/mock_UMEA-01-19ML+CDT_EDTA_PLASMA_02FEB1792.XLSX" -- error
+
+# query: "/mock_UMEA-01-19ML+CDT_EDTA_PLASMA_02FEB1792.XLSX" -- error
+# query: "mock_UMEA-01-19ML+CDT_EDTA_PLASMA_02FEB1792.XLSX" -- ok
+
+# Conclusion: 
+# - works with even number of '/'
+# - errors with odd number of '/'
+
+# query: "\/mock_UMEA-01-19ML+CDT_EDTA_PLASMA_02FEB1792.XLSX" -- error
+# query: "\\/mock_UMEA-01-19ML+CDT_EDTA_PLASMA_02FEB1792.XLSX" -- ok  ==> need double escape of '/'
+
+# original query with double escape:
+# query: "\\/fakelake\\/1_bronze\\/x2\\/data_1\\/mock_UMEA-01-19ML+CDT_EDTA_PLASMA_02FEB1792.XLSX" -- OK!
+```
+### Solution
+> Forward slash ('(/)  must be double escaped when used in query
