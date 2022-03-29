@@ -63,7 +63,6 @@ print(filenames)
 
 ## b) get individuals included in each dataset
 
-This **does not** work:
 ```{r}
 # get individuals from a file
 get_individuals_in_dataset <- function(filename) {
@@ -72,19 +71,20 @@ get_individuals_in_dataset <- function(filename) {
   quadruple_escaped_path <- filename %>% str_replace_all("/", "\\\\\\\\/")
   body <- glue(
     '{{
-      "size": 0,
       "query": {{
-        "query_string": {{
-          "default_field": "dataset.filename",
-          "query": "{quadruple_escaped_path}"
+        "bool": {{
+          "filter": {{
+            "term": {{
+              "dataset.filename.keyword": "{filename}"
+            }}
+          }}
         }}
-      }},
+      }}, 
       "aggs": {{
         "individuals": {{
           "terms": {{"field": "predict_id.keyword", "size": 500}}
         }}
       }}
-    
     }}'
   )
   res <- Search(x, index = indices_all, body = body, source = FALSE)
@@ -97,15 +97,9 @@ individuals_per_file <- map(filenames, get_individuals_in_dataset)
 print(individuals_per_file)
 ```
 
-
-> Incorrect query result: 
->
-> * Query returns all 30 individuals as included in each file
-> * Both `x1` files contain only individuals 1-20
-> * The `x2` file contains only individuals 1-25
+> Huzza! This was what I was aiming for :)
 
 
-Must figure out how to re-formulate query to get accurate result.
 
 
 # Query 2
