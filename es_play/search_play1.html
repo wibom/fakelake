@@ -389,31 +389,29 @@ div.tocify {
 <h2>b) get individuals included in each dataset</h2>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get individuals from a file</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>get_individuals_in_dataset <span class="ot">&lt;-</span> <span class="cf">function</span>(filename) {</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># To achieve double escaped forward slashes (necessary for use in ES-query),</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># we need quadruple escape as input to `glue::glue`</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  quadruple_escaped_path <span class="ot">&lt;-</span> filename <span class="sc">%&gt;%</span> <span class="fu">str_replace_all</span>(<span class="st">&quot;/&quot;</span>, <span class="st">&quot;</span><span class="sc">\\\\\\\\</span><span class="st">/&quot;</span>)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  body <span class="ot">&lt;-</span> <span class="fu">glue</span>(</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;{{</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="st">      &quot;query&quot;: {{</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="st">        &quot;bool&quot;: {{</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="st">          &quot;filter&quot;: {{</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="st">            &quot;term&quot;: {{</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="st">              &quot;dataset.filename.keyword&quot;: &quot;{filename}&quot;</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="st">            }}</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="st">          }}</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="st">        }}</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="st">      }}, </span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="st">      &quot;aggs&quot;: {{</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="st">        &quot;individuals&quot;: {{</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="st">          &quot;terms&quot;: {{&quot;field&quot;: &quot;predict_id.keyword&quot;, &quot;size&quot;: 500}}</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="st">        }}</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="st">      }}</span></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="st">    }}&#39;</span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  res <span class="ot">&lt;-</span> <span class="fu">Search</span>(x, <span class="at">index =</span> indices_all, <span class="at">body =</span> body, <span class="at">source =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>  individuals <span class="ot">&lt;-</span> <span class="fu">map_chr</span>(res<span class="sc">$</span>aggregations<span class="sc">$</span>individuals<span class="sc">$</span>buckets, <span class="sc">~</span> ..<span class="dv">1</span><span class="sc">$</span>key)  </span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>individuals_per_file <span class="ot">&lt;-</span> <span class="fu">map</span>(filenames, get_individuals_in_dataset)</span></code></pre></div>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  body <span class="ot">&lt;-</span> <span class="fu">glue</span>(</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;{{</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="st">      &quot;query&quot;: {{</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="st">        &quot;bool&quot;: {{</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="st">          &quot;filter&quot;: {{</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="st">            &quot;term&quot;: {{</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="st">              &quot;dataset.filename.keyword&quot;: &quot;{filename}&quot;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="st">            }}</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="st">          }}</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="st">        }}</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="st">      }}, </span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="st">      &quot;aggs&quot;: {{</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="st">        &quot;individuals&quot;: {{</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="st">          &quot;terms&quot;: {{&quot;field&quot;: &quot;predict_id.keyword&quot;, &quot;size&quot;: 500}}</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="st">        }}</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="st">      }}</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="st">    }}&#39;</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  res <span class="ot">&lt;-</span> <span class="fu">Search</span>(x, <span class="at">index =</span> indices_all, <span class="at">body =</span> body, <span class="at">source =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  individuals <span class="ot">&lt;-</span> <span class="fu">map_chr</span>(res<span class="sc">$</span>aggregations<span class="sc">$</span>individuals<span class="sc">$</span>buckets, <span class="sc">~</span> ..<span class="dv">1</span><span class="sc">$</span>key)  </span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>individuals_per_file <span class="ot">&lt;-</span> <span class="fu">map</span>(filenames, get_individuals_in_dataset)</span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(individuals_per_file)</span></code></pre></div>
 <pre><code>## [[1]]
 ##  [1] &quot;p0000003&quot; &quot;p0000004&quot; &quot;p0000001&quot; &quot;p0000002&quot; &quot;p0000005&quot; &quot;p0000007&quot;

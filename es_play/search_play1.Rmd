@@ -62,13 +62,10 @@ print(filenames)
 ```
 
 ## b) get individuals included in each dataset
-
 ```{r}
 # get individuals from a file
 get_individuals_in_dataset <- function(filename) {
-  # To achieve double escaped forward slashes (necessary for use in ES-query),
-  # we need quadruple escape as input to `glue::glue`
-  quadruple_escaped_path <- filename %>% str_replace_all("/", "\\\\\\\\/")
+
   body <- glue(
     '{{
       "query": {{
