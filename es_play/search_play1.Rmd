@@ -5,6 +5,7 @@ date:
 output:
   html_document:
     self_contained: TRUE
+    highlight: pygments
 toc: TRUE
 toc_float: TRUE
 toc_depth: 3
@@ -20,6 +21,7 @@ editor_options:
 ```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
 here::i_am("es_play/search_play1.Rmd")
 library(here)
+library(glue)
 library(elastic)
 library(tidyverse)
 
@@ -34,50 +36,156 @@ x <- elastic::connect(
 #x$ping()
 
 # Get indices ----
-es_indices <- cat_indices(x, parse = TRUE, verbose = TRUE)$index
+indices_all <- cat_indices(x, parse = TRUE, verbose = TRUE)$index
 ```
-
 
 # Query 1
 
-*Get number of samples (not unique) characterized by Metabolon metabolomics*
+List all datasets and how they overlap in terms of individuals:
 
+## a) get the filepath of each dataset
 ```{r}
-index_pattern <- "--metabolon--events"
-selected_indices <- es_indices[str_detect(es_indices, index_pattern)]
+# get unique values from specific field
+# - https://stackoverflow.com/a/57297526/7439717
+# - https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-bucket-terms-aggregation.html
+body <- '{
+  "aggs": {
+    "files": {
+      "terms": { "field": "dataset.filename.keyword" }
+    }
+  }
+}'
+res <- Search(x, index = indices_all, body = body, source = FALSE)
+filenames <- map_chr(res$aggregations$files$buckets, ~ ..1$key)
 
-res <- Search(
-  x, 
-  index = selected_indices, 
-  size = "1000",
-  
-  # using body allows wild-cards in field-names
-  # https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html
-  body = '
-    {
-      "query": {
-        "query_string": {
-          "query": "metabolon", 
-          "default_field": "meta_dir.data.set_*.analyses_platforms"
+print(filenames)
+```
+
+## b) get individuals included in each dataset
+
+This **does not** work:
+```{r, eval = FALSE}
+
+# -- NOT RUN -- 
+
+# get individuals from a file
+get_individuals_in_dataset <- function(filename) {
+  browser()
+  body <- glue(
+    '{{
+      "size": 0,
+      "query": {{
+        "query_string": {{
+          "default_field": "dataset.filename",
+          "query": "{filename}"
+        }}
+      }},
+      "aggs": {{
+        "individuals": {{
+          "terms": {{"field": "predict_id.keyword", "size": 500}}
+        }}
+      }}
+    
+    }}'
+  )
+  res <- Search(x, index = indices_all, body = body, source = FALSE)
+  individuals <- map_chr(res$aggregations$individuals$buckets, ~ ..1$key)  
+}
+individuals_per_file <- map(filenames, get_individuals_in_dataset)
+```
+
+The above code works for the first file (`"/fakelake/1_bronze/nshds/nshds_mock.tsv"`), but breaks for all the other files.
+
+
+### Investigate error:
+
+Querying ES from `Kibana > Dev Tools`, gives:
+
+```{r, engine='python', eval=FALSE, python.reticulate=FALSE}
+# This returns an error:
+GET /_search
+{
+  "size": 0,
+  "query": {
+    "query_string": {
+      "default_field": "dataset.filename",
+      "query": "1_bronze/x2/data_1/mock_UMEA-01-19ML+CDT_EDTA_PLASMA_02FEB1792.XLSX"
+    }
+  }, 
+  "aggs": {
+    "individuals": {
+      "terms": {"field": "predict_id.keyword", "size": 500}
+    }
+  }
+}
+
+# But this works:
+GET /_search
+{
+  "size": 0,
+  "query": {
+    "query_string": {
+      "default_field": "dataset.filename",
+      "query": "x2/data_1/mock_UMEA-01-19ML+CDT_EDTA_PLASMA_02FEB1792.XLSX"
+    }
+  }, 
+  "aggs": {
+    "individuals": {
+      "terms": {"field": "predict_id.keyword", "size": 500}
+    }
+  }
+}
+
+# Further tests:
+# query: "/fakelake/1_bronze/x2/data_1"      -- works
+# query: "\/fakelake\/1_bronze\/x2\/data_1*" -- works
+# query: "/fakelake/1_bronze/x2/data_1*"     -- works
+# query: "/fakelake/1_bronze/x2/data_1/*"    -- error
+# query: "1_bronze/x2/data_1/mock_UMEA-01-19ML+CDT_EDTA_PLASMA_02FEB1792.XLSX" -- error
+
+```
+
+Why is this? Here it is suggested it may be solved by different mapping:   https://stackoverflow.com/a/27712853
+
+Retrieve current mapping (from `Kibana/Dev Tools`):
+```{r, engine = 'python', eval = FALSE, python.reticulate=FALSE}
+GET data_x2--metabolon--dataset/_mapping/field/dataset.filename
+
+# returns:
+{
+  "data_x2--metabolon--dataset" : {
+    "mappings" : {
+      "dataset.filename" : {
+        "full_name" : "dataset.filename",
+        "mapping" : {
+          "filename" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          }
         }
       }
-    }',
-  asdf = TRUE
-)
-
-
-res_df <- res$hits$hits %>% as_tibble()
-n <- res_df %>% nrow()
-n_unique_ind <- n_distinct(res_df$`_source.predict_id`)
+    }
+  }
+}
 ```
-> There are __`r n`__ samples analyzed by Metabolon metabolomics, donated by
-__`r n_unique_ind`__ unique individuals
+
+> But, if it's a mapping issue I'd have thought that it would error for all
+queries used above... ?
 
 
 # Query 2
+**Get number of samples (not unique) characterized by Metabolon metabolomics**
+
+
+# Query 3
 Get individuals with repeat events (i.e. events at >1 date, not ) in lake.
 
-NOTE: 
+NOTE:   
 "Events" may be defined differently, e.g. "health check" and "questionnaire" 
 from the same date may be considered a single event, or multiple events. 
 
@@ -86,102 +194,26 @@ considering `event_type = health` and `event_type = questionnaire` as one single
 event if they occur on exactly the same date.
 
 
+
+# Further thoughts
+
+* Add an index for individuals that tracks consents and 'nej talong'`
+<br>
+* Are there any benefits of assigning dockument ids? 
+    + Each document is currently assigned an `uuid` by ES upon loading indices
+<br>
+* Currently all mappmings are done dynamically - is there a need to do this more
+  carefully (manually)?
+<br>
+* Perhaps fun to see if I can get SQL-queries to work
+    + Using RJDBC: https://dzone.com/articles/analyze-elasticsearch-data-in-r
+    + Using Dremeo: https://www.dremio.com/tutorials/joins-in-elasticsearch/
+
+
+# SessionInfo
 ```{r}
-res <- Search(
-  x, 
-  index = selected_indices, 
-  size = "1000", 
-  body = 
-    '{
-      "_source": [
-        "predict_id",
-        "date",
-        "meta_dir.data.events.event_types",
-        "meta_dir.data.id"
-      ]
-    }', 
-  asdf = TRUE
-)
-
-# NOTE: 
-# Sample from p000000001 @ 1800-01-08 is analyzed in both data0001 and data0002
-# They still represent the same sampling event! 
-#
-# Should this be handled with some kind of event store, where each event is
-# assigned a unique, persistent identifier?
-# 
-# Can this be done on a generic level to handle any kind of event?
-#
-# For example, an event identifier can be a composite key from:
-#  + predict_id
-#  + date 
-#  + event_type
-#  + event_setting (to discriminate between samples donated at both UCAN and VIP
-#    on the same date)
-#  + sample_type ??? (not sure it should be included; tissue and blood donated
-#    simultaneiously - are they separate events?)
-#  + ICD10-code (NULL if event != dx)
-#  + counter... ?? (are there any events that can not be distinguished by these
-#    variables?)
-#
-# ______________________________________________________________________________
-#
-# Alternatively, event_ids are assigned within the code of each analyses. This
-# allows greater flexibility, useful when the definition of an event may 
-# be different from time to time...
-# 
-# As such:
-
-events_all <- 
-  res$hits$hits %>% 
-  as_tibble() %>% 
-  select(`_index`, starts_with("_source")) %>% 
-  rename_all(str_remove, pattern = "_source.") %>% 
-  mutate(
-    meta_dir.data.events = map_chr(
-      meta_dir.data.events, 
-      ~ ..1$event_types %>% unlist() %>% str_flatten(collapse = ",")
-    )
-  ) %>% 
-  arrange(predict_id) %>% 
-  # minimalistic type of event-identifier suitable in this particular case
-  unite("tmp_event_id", predict_id, date, sep = "|", remove = FALSE) %>% 
-  relocate(tmp_event_id, predict_id)
-
-# Events from unnknown dates are ignored
-events <- 
-  events_all %>% 
-  filter(!is.na(date))
-
-unique_events <- 
-  events %>% 
-  group_by(tmp_event_id) %>% 
-  summarise(
-    event_type = unique(meta_dir.data.events) %>% str_c(collapse = " | "),
-    predict_id = unique(predict_id), 
-    date = unique(date)
-  )
+sessionInfo()
 ```
-
-__TODO:__ 
-
-
-* Add `data_types` that are associated with each event... 
-* Include `event_setting` in all `--row` indices.
-
-
-```{r}
-unique_events %>% 
-  count(predict_id, name = "n.o. events") %>% 
-  arrange(desc(`n.o. events`))
-
-```
-
-
-# Query 3
-
-List all datasets, and how they overlap in terms of (i) individuals, and (ii) 
-samples (as defined by `sample_date`).
 
 
 
