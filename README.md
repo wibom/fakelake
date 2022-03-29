@@ -261,5 +261,65 @@ GET /_search
 # original query with double escape:
 # query: "\\/fakelake\\/1_bronze\\/x2\\/data_1\\/mock_UMEA-01-19ML+CDT_EDTA_PLASMA_02FEB1792.XLSX" -- OK!
 ```
+
 ### Solution
-> Forward slash ('(/)  must be double escaped when used in query
+
+* Forward slash ('/')  must be double escaped when used in query
+* Also, `query_string` might not be the best option, probably better to use `bool` instead (see: [Filter and aggregate])
+
+
+## Filter and aggregate
+
+### Issue
+```bash
+# --------------------------
+# I was hoping this query would only return the individuals included in 
+# the file "/fakelake/1_bronze/x1/data_2/mock_Olink_NPX_1791-02-02.csv"
+#
+# Instead all included individuals in the lake are returned... 
+# How do I reformulate the query to return only individuals in file?
+GET /_search
+{
+  "size": 0,
+  "query": {
+    "query_string": {
+      "default_field": "dataset.filename",
+      "query": "\\/fakelake\\/1_bronze\\/x1\\/data_2\\/mock_Olink_NPX_1791-02-02.csv"
+    }
+  },
+  "aggs": {
+    "individuals": {
+      "terms": {"field": "predict_id.keyword", "size": 500}
+    }
+  }
+}
+```
+
+### Solution
+Apparently `query_string` performes some sort of text-search that I don't 
+understand.
+
+Using boolean search does what I want:
+
+```bash
+# --------------------------
+GET /_search
+{
+  "query": {
+    "bool": {
+      "filter": {
+        "term": {
+          "dataset.filename.keyword": "/fakelake/1_bronze/x1/data_2/mock_Olink_NPX_1791-02-02.csv"
+        }
+      }
+    }
+  }, 
+  "aggs": {
+    "individuals": {
+      "terms": {"field": "predict_id.keyword", "size": 500}
+    }    
+  }
+}
+```
+
+NOTE: this way it's not necessary to escape forward slash characters.
