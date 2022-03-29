@@ -18,7 +18,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+```{r setup, echo=TRUE, message=FALSE, warning=FALSE}
 here::i_am("es_play/search_play1.Rmd")
 library(here)
 library(glue)
