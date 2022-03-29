@@ -141,6 +141,30 @@ Pretending to query the `fakelake`:
 
 # Current issues
 
+```bash
+# --------------------------
+# I was hoping this query would only return the individuals included in 
+# the file "/fakelake/1_bronze/x1/data_2/mock_Olink_NPX_1791-02-02.csv"
+#
+# Instead all included individuals in the lake are returned... 
+# How do I reformulate the query to return only individuals in file?
+GET /_search
+{
+  "size": 0,
+  "query": {
+    "query_string": {
+      "default_field": "dataset.filename",
+      "query": "\\/fakelake\\/1_bronze\\/x1\\/data_2\\/mock_Olink_NPX_1791-02-02.csv"
+    }
+  },
+  "aggs": {
+    "individuals": {
+      "terms": {"field": "predict_id.keyword", "size": 500}
+    }
+  }
+}
+```
+
 # Resolved issues :)
 ## Quering for filepaths
 Using the Kibana `Dev Tools` console:
