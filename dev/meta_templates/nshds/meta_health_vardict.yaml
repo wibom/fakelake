@@ -1,0 +1,256 @@
+dataset:
+  filename: PLACEHOLDER_FILENAME
+var1: 
+  id: predict_id
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+var2: 
+  id: pat_code
+  aliases: null
+  class: "Identifier"
+  derivation: null
+  embargo: null
+  label: "patcode"
+  method: null
+  note: >
+    Internal event identifier used at EBF.
+    The code is unique for an individual at an event
+  unit: null
+  validation: null
+  verfified: null
+var3: 
+  id: sex
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+var4:
+  id: sample_setting
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+var5: 
+  id: event_date
+  aliases: null
+  class: 'Date'
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+var6: 
+  id: sample_fasting
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+var7: 
+  id: langd
+  aliases: ["längd", "body height", "height"]
+  class: 'Anthropometry'
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+var8:
+  id: vikt
+  aliases: null
+  class: 'Anthropometry'
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+var9: 
+  id: bmi
+  aliases: null
+  class: Anthropometry
+  derivation: Calculated from [langd] and [vikt]
+  embargo: null
+  label: Body mass index
+  method: BMI (kg/m2) = Weight (kg) divided by Height (m) squared
+  note: Note that Height is given in cm!
+  unit: kg/m2
+  validation: null
+  verfified: null
+var10:
+  id: midja
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+var11:
+  id: skol
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+var12:
+  id: skol_mo
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+var13:
+  id: hdl
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+var14:
+  id: ldl
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+var15:
+  id: stg
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+var17:
+  id: stg_mo
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+var18:
+  id: blods0
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+var19:
+  id: blods2
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+var20:
+  id: event_type
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+var21:
+  id: sample_type
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+var22:
+  id: sample_anti_coagulant
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null

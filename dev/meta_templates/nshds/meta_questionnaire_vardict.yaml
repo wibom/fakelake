@@ -1,0 +1,112 @@
+dataset:
+  filename: PLACEHOLDER_FILENAME
+var1:
+  id: predict_id
+  aliases: null
+  class: individual identifier
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+var2: 
+  id: pat_code
+  aliases: null
+  class: event identifier
+  derivation: null
+  embargo: null
+  label: "patcode"
+  method: null
+  note: >
+    Internal event identifier used at EBF.
+    The code is unique for an individual at an event
+  unit: null
+  validation: null
+  verfified: null
+var3:
+  id: sex
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+var4:
+  id: event_setting
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+var5:
+  id: enk
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+var6: 
+  id: fasta_enk
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+var7:
+  id: event_date
+  aliases: null
+  class: 'Date'
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+var8:
+  id: sambo
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null
+var9: 
+  id: event_type
+  aliases: null
+  class: null
+  derivation: null
+  embargo: null
+  label: null
+  method: null
+  note: null
+  unit: null
+  validation: null
+  verfified: null

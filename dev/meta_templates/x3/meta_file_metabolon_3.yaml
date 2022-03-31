@@ -1,0 +1,41 @@
+comment_owner: optional freetext
+comment_predict: optional freetext
+subject_terms: [Androgen receptor, DNA methylation, Gene expression, MetA, MetB, MetC, Metastasis, Prognosis, Prostate cancer]
+PI:
+  1:
+    name: Elin Thysell
+    email: elin.thysell@umu.se
+    uni: Umeå University
+    faculty: Medical Faculty
+    department: Pathology
+  2: 
+    name: Pernilla Wikström
+    email: pernilla.wikstrom@umu.se
+ethics:
+  comment: optional freetext
+  1:
+    type: main
+    dnr: 2001/295-31M
+    date: 2018-01-01
+    comment: pertaining to cohort-X
+  2: 
+    type: amendment
+    dnr: 2017/295-31M
+    date: 2001-01-01
+    comment: optional freetext
+publicaitons:
+  1:
+    doi: 10.1186/s13148-021-01119-0
+    pmid: '34193246'
+#    arXive: null
+#    other: null
+    abstract: >
+      Patients with metastatic prostate cancer (PC) are treated with androgen deprivation therapy (ADT) that initially reduces metastasis growth, but after some time lethal castration-resistant PC (CRPC) develops. A better understanding of the tumor biology in bone metastases is needed to guide further treatment developments. Subgroups of PC bone metastases based on transcriptome profiling have been previously identified by our research team, and specifically, heterogeneities related to androgen receptor (AR) activity have been described. Epigenetic alterations during PC progression remain elusive and this study aims to explore promoter gene methylation signatures in relation to gene expression and tumor AR activity.
+      Genome-wide promoter-associated CpG methylation signatures of a total of 94 tumor samples, including paired non-malignant and malignant primary tumor areas originating from radical prostatectomy samples (n = 12), and bone metastasis samples of separate patients with hormone-naive (n = 14), short-term castrated (n = 4) or CRPC (n = 52) disease were analyzed using the Infinium Methylation EPIC arrays, along with gene expression analysis by Illumina Bead Chip arrays (n = 90). AR activity was defined from expression levels of genes associated with canonical AR activity.
+      Integrated epigenome and transcriptome analysis identified pronounced hypermethylation in malignant compared to non-malignant areas of localized prostate tumors. Metastases showed an overall hypomethylation in relation to primary PC, including CpGs in the AR promoter accompanied with induction of AR mRNA levels. We identified a Methylation Classifier for Androgen receptor activity (MCA) signature, which separated metastases into two clusters (MCA positive/negative) related to tumor characteristics and patient prognosis. The MCA positive metastases showed low methylation levels of genes associated with canonical AR signaling and patients had a more favorable prognosis after ADT. In contrast, MCA negative patients had low AR activity associated with hypermethylation of AR-associated genes, and a worse prognosis after ADT.
+      A promoter methylation signature classifies PC bone metastases into two groups and predicts tumor AR activity and patient prognosis after ADT. The explanation for the methylation diversities observed during PC progression and their biological and clinical relevance need further exploration.
+dataset:
+  filename: PLACEHOLDER_FILENAME
+  datatype: metabolomics
+  analytics_platform: Metabolon
+  embargo: 2040-01-01
