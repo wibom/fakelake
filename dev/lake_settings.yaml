@@ -22,19 +22,19 @@ nshds:
   es_indices:
     index_dataset: 
       index_file: index_data.ndjson
-      index_id:   nshds--dataset
+      index_id:   datasets
     index_health_vardict:
       index_file: index_health_vardict.ndjson
       index_id:   nshds--health--vardict
     index_health_events:
       index_file: index_health_events.ndjson
-      index_id:   nshds--health--events      
+      index_id:   events      
     index_questionnaire_vardict:
       index_file: index_questionnaire_vardict.ndjson
       index_id:   nshds--questionnaire--vardict
     index_questionnaire_events:
       index_file: index_questionnaire_events.ndjson
-      index_id:   nshds--questionnaire--events
+      index_id:   events
 
 dir_1: 
   id: x1
@@ -58,13 +58,13 @@ dir_1:
       es_indices:
         index_dataset: 
           index_file: index_dataset.ndjson
-          index_id:   data_x1--metabolon--dataset
+          index_id:   datasets
         index_analytes:
           index_file: index_analytes.ndjson
           index_id:   data_x1--metabolon--analytes        
         index_events: 
           index_file: index_events.ndjson
-          index_id:   data_x1--metabolon--events     
+          index_id:   events     
     data_2:
       # Data (bronze)
       data_type: olink
@@ -81,13 +81,13 @@ dir_1:
       es_indices:
         index_dataset: 
           index_file: index_dataset.ndjson
-          index_id:   data_x1--olink--dataset
+          index_id:   datasets
         index_analytes:
           index_file: index_analytes.ndjson
           index_id:   data_x1--olink--analytes        
         index_events: 
           index_file: index_events.ndjson
-          index_id:   data_x1--olink--events                      
+          index_id:   events                      
 
 dir_2: 
   id: x2
@@ -113,10 +113,10 @@ dir_2:
       es_indices:
         index_dataset: 
           index_file: index_dataset.ndjson
-          index_id:   data_x2--metabolon--dataset
+          index_id:   datasets
         index_analytes:
           index_file: index_analytes.ndjson
           index_id:   data_x2--metabolon--analytes        
         index_events: 
           index_file: index_events.ndjson
-          index_id:   data_x2--metabolon--events    
+          index_id:   events    
