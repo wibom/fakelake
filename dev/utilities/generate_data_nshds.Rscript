@@ -232,10 +232,12 @@ nshds_health_meta_event <-
     -c(enk, fasta_enk, q_date, sambo)
   ) %>% 
   mutate(
+    pat_code = as.character(pat_code),
     event_type = "health,sample",
     sample_type = "plasma",
     sample_anti_coagulant = "EDTA",
-    dataset.filename = relpath_nshds_file_bronze
+    dataset.filename = relpath_nshds_file_bronze,
+    dataset.datatype = "register"
   ) %>% 
   rename(
     event_date = pdatum,
@@ -272,8 +274,10 @@ nshds_questionnaire_meta_event <-
       )
   ) %>% 
   mutate(
+    pat_code = as.character(pat_code),
     event_type = "questionnaire",
-    dataset.filename = relpath_nshds_file_bronze
+    dataset.filename = relpath_nshds_file_bronze,
+    dataset.datatype = "register"
   ) %>% 
   rename(
     event_date = q_date,
