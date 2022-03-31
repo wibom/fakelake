@@ -122,12 +122,11 @@ They can be bulk loaded into Elasticsearch (using dynamic mappings) by running t
 
 As an initial setting, I am playing the Kibana dataviews (a.k.a "index-patterns" in ES < 8.x), based on the index naming scheme used (see: `dev/lake_settings.yaml`)
 
+* `events`
+* `datasets`
 * `*--analytes`
-* `*--columns`
-* `*--dataset`
-* `*--events`
-* `*--metabolon--events`
-* etc...
+* `*--vardict`
+
 
 
 # Play around
