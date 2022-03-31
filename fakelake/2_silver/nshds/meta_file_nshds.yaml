@@ -23,12 +23,10 @@ ethics:
     type: amendment
     dnr: 2020-09-37Q
     date: '2022-01-01'
-    comment: ~
   '3':
     type: amendment
-    dnr: 2020-09-37QR
+    dnr: 2022-9783-3QR
     date: '2022-05-01'
-    comment: ~
 dataset:
   filename: /fakelake/1_bronze/nshds/nshds_mock.tsv
-  type: register
+  datatype: register

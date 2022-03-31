@@ -1,101 +1,101 @@
-predict_id	pat_code	sex	event_setting	event_date	event_fasting	langd	vikt	bmi	midja	skol	skol_mo	hdl	ldl	stg	stg_mo	blods0	blods2	event_type	sample_type	sample_anti_coagulant	dataset.filename
-p0000001	2402142907	m	VIP	1760-02-01	1	159.69063172761247	73.18815086268853	28.7	NA	5.55	NA	NA	NA	2.1	NA	6.1	6	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000001	2455982169	m	VIP	1760-12-10	3	167.8094322226795	75.46881485496681	26.8	NA	6.1	NA	1.25	NA	1.33	NA	6.4	4.8	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000001	2402212410	m	VIP	1760-02-21	3	158.21157294626843	82.10135795035433	32.8	NA	6.29	NA	NA	1.2	0.8	NA	5.7	5.3	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000002	2456060916	m	VIP	1760-05-09	3	159.9209076703324	74.93386136060174	29.3	NA	6	NA	NA	NA	1.61	NA	4.6	6.3	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000002	2402109696	m	VIP	1761-04-03	1	188.12650829414278	77.86148287048157	22	NA	5.3	NA	NA	NA	0.77	NA	4.4	6.2	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000002	2402152765	m	VIP	1760-05-29	3	200.1889990153358	79.75051430025663	19.9	NA	5.6499999999999995	NA	NA	NA	1.21	NA	5.4	5.8	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000003	2481010202	f	VIP	1752-07-16	0	183.66207417629192	77.24572465378945	22.9	NA	4.71	NA	1.1800000000000002	NA	1.28	NA	5.8	6.3	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000003	2402056624	f	VIP	1752-02-21	3	164.09457033513686	82.1274354410932	30.5	NA	4.470000000000001	NA	1.1	NA	1.7	NA	4.9	8.3	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000003	2402118249	f	VIP	1752-08-05	3	187.31660251516476	89.47314942345177	25.5	NA	6.22	NA	1.2	NA	1	NA	4.7	7.2	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000004	2481004594	f	VIP	1759-01-27	3	146.33137550343133	65.73751537214952	30.7	NA	4.07	NA	NA	NA	1.46	NA	NA	1.1	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000004	2418947165	f	VIP	1759-10-05	3	182.76396652488353	70.81365501500653	21.2	NA	6.1	NA	NA	NA	0.8	NA	NA	8.8	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000004	2402143159	f	VIP	1759-02-16	3	167.22624986876096	73.54694703679519	26.3	NA	5.53	NA	NA	NA	NA	NA	5.9	7.5	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000005	2417891093	m	VIP	1756-10-22	3	179.98370687772683	73.5346858630858	22.7	NA	6.9	NA	NA	5.2	1.1300000000000001	NA	5.5	7.3	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000005	2405035156	m	VIP	1757-02-12	3	183.15068375174226	80.17057337136637	23.9	NA	6.5	NA	NA	NA	1.61	NA	5.6	8.9	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000005	2402137344	m	VIP	1756-11-11	3	205.19317226595942	86.31368778636377	20.5	67	5.28	NA	2.11	NA	1.8	NA	5.6	2.9	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000006	2456028235	m	VIP	1755-05-03	3	151.9867619084405	57.9809392464866	25.1	101	7.24	NA	NA	NA	0.49	NA	4.5	7.2	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000006	2480986669	m	VIP	1755-05-27	3	161.77972437677508	60.72061578906673	23.2	NA	4.6	NA	1.29	NA	1.25	NA	5.1	7	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000006	2402162627	m	VIP	1755-05-23	3	179.13644570600889	68.03051630198556	21.2	74	NA	NA	NA	NA	NA	NA	5.9	6.8	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000007	2481022940	f	VIP	1757-12-12	3	161.93543195513874	64.50878694134353	24.6	NA	NA	NA	NA	NA	0.9400000000000001	NA	5.7	3.7	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000007	2481040167	f	VIP	1758-06-13	3	179.2015699145021	73.53923409099279	22.9	NA	4.819999999999999	NA	NA	1.5	NA	NA	6.3	8.1	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000007	2480975801	f	VIP	1758-01-01	3	145.6196259619542	73.79366261924206	34.8	NA	4.619999999999999	NA	NA	NA	0.8	NA	5.5	6.9	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000008	2402130131	f	VIP	1750-09-22	3	156.64544591028107	64.04364684076437	26.1	NA	5.659999999999999	NA	1.07	NA	0.96	NA	5.2	7.1	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000008	2525970735	f	VIP	1750-01-08	3	180.45479708011342	73.59449036364832	22.6	NA	6.55	NA	1.1700000000000002	3.3	NA	NA	6	7.3	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000008	2455035870	f	VIP	1750-10-12	3	172.42020575176022	71.94352019057997	24.2	NA	5	NA	NA	NA	0.8200000000000001	NA	6.6	5.9	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000009	2456085309	m	VIP	1756-12-28	3	161.73405533577784	53.10054645037358	20.3	NA	6.3	NA	NA	NA	4.41	NA	5.5	6.7	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000009	2456002256	m	VIP	1757-05-02	3	129.78687909985746	53.90282875673925	32	NA	5.1	NA	NA	NA	1.86	NA	5.4	NA	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000009	2402032881	m	VIP	1757-01-17	3	NA	53.53139432149087	NA	NA	5.25	NA	0.98	NA	0.96	NA	5.3	5.7	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000010	2480964093	m	VIP	1757-07-26	3	NA	70.25285824824579	NA	NA	5.9	NA	NA	NA	NA	NA	4.9	4.3	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000010	2402119009	m	VIP	1758-01-02	3	187.01826533081126	76.9468294481606	22	NA	6.9	NA	0.89	NA	2.54	NA	5.6	7.2	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000010	2483032496	m	VIP	1757-08-15	3	183.06177300627579	83.10879958577908	24.8	NA	3.8	NA	NA	4.6	0.81	NA	4.3	7.3	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000011	2483029277	f	VIP	1754-08-08	3	155.3570323495965	71.44199020140178	29.6	NA	5.56	NA	NA	4.2	2.07	NA	5.2	7	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000011	2483012267	f	VIP	1754-07-18	3	172.1211326899378	80.285604503046045	27.1	NA	4.39	NA	NA	NA	NA	NA	5.7	9.6	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000011	2456065239	f	VIP	1754-08-28	3	204.50930553549648	89.50347994830764	21.4	NA	4.4	NA	0.81	NA	NA	NA	4.5	7.4	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000012	2462997445	f	VIP	1757-09-26	3	147.05724390190858	67.47259891015933	31.2	NA	5.609999999999999	NA	1.49	NA	1.44	NA	5.2	6	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000012	2482947570	f	VIP	1758-03-15	3	167.88041139431127	72.71428792720185	25.8	NA	5.930000000000001	NA	NA	NA	0.8	NA	6.6	6.4	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000012	2402185819	f	VIP	1757-10-16	3	168.29267300570078	77.3202169396122	27.3	NA	5.159999999999999	NA	NA	NA	1.25	NA	5	7.7	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000013	2480961995	m	VIP	1760-04-28	1	191.19849728496163	75.30714264989662	20.6	82	3.23	NA	1.06	NA	1.3	NA	4.9	6.1	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000013	2418925778	m	VIP	1761-03-21	3	163.1164725909935	80.88523023680615	30.4	NA	4.9	NA	NA	NA	1.55	NA	5.3	5.8	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000013	2463066172	m	VIP	1760-05-18	1	178.5812659308354	86.10642506194132	27	NA	4.83	NA	NA	NA	1.02	NA	5.6	5	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000014	2402101924	m	VIP	1752-03-04	3	141.98358120727278	64.91306621046397	32.2	NA	4.6499999999999995	NA	NA	NA	1.97	NA	2.9	6.2	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000014	2483009118	m	VIP	1751-09-17	3	156.18993203948847	74.16169640632006	30.4	NA	4.2700000000000005	NA	1.6	NA	2	NA	4.9	6.3	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000014	2483064347	m	VIP	1752-03-24	3	190.20381284123843	74.52563026385042	20.6	NA	4.99	NA	NA	NA	0.9500000000000001	NA	5.3	7	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000015	2403046823	f	VIP	1754-08-28	3	162.79094425148975	60.422032689064935	22.8	NA	6.51	NA	1.6300000000000001	NA	1.3900000000000001	NA	5.9	7.5	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000015	2456001748	f	VIP	1754-08-10	3	134.92096684246826	68.62782569727321	37.7	NA	5.56	NA	NA	3.4	0.8	NA	6.4	8.8	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000015	2482981119	f	VIP	1754-09-17	1	183.05594600786284	73.05066502405722	21.8	NA	6.68	NA	NA	NA	NA	NA	5.2	6.2	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000016	2402050030	f	VIP	1760-05-22	3	169.56373639805219	73.02972618122102	25.4	NA	4.33	NA	2.57	NA	2.71	NA	5.3	5.6	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000016	2456042199	f	VIP	1761-04-18	3	178.77953380908062	77.98757696994097	24.4	NA	6.05	NA	1.06	NA	NA	NA	5.9	10.3	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000016	2483041071	f	VIP	1760-06-11	3	175.05432864388837	78.14224584125431	25.5	NA	6.4	NA	NA	NA	0.99	NA	5.7	NA	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000017	2463960935	m	VIP	1760-11-05	3	162.35996206402515	64.3202477666933	24.4	92	6.85	NA	1.3900000000000001	NA	NA	NA	5.1	4.8	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000017	2418981986	m	VIP	1761-10-30	3	184.08139510871592	72.17709485361463	21.3	NA	7.56	NA	NA	NA	4.4	NA	4.9	5.1	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000017	2482985014	m	VIP	1760-11-25	3	179.36024938125433	75.5997327865485	23.5	89	3.92	NA	NA	NA	NA	NA	5.5	6.3	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000018	2402125838	m	VIP	1750-07-08	3	183.46422364592962	80.10870883204876	23.8	NA	4.75	NA	0.99	NA	NA	NA	4.9	13.3	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000018	2456005892	m	VIP	1749-10-12	1	179.0131236642076	79.47333214116185	24.8	NA	5.03	NA	NA	NA	NA	NA	4.4	7.2	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000018	2483003337	m	VIP	1750-07-28	3	181.76860610030238	81.27797236257135	24.6	NA	7.52	NA	NA	NA	0.63	NA	4.7	5.7	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000019	2481041886	f	VIP	1754-10-22	3	156.34964160905446	66.97987658170658	27.4	NA	5.819999999999999	NA	1	NA	2.14	NA	5.4	5.8	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000019	2483004739	f	VIP	1754-10-14	3	179.55739022684568	74.15396968567418	23	NA	6.34	NA	6.2	NA	2.56	NA	5.2	NA	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000019	2482969401	f	VIP	1754-11-11	3	159.25263569571996	73.54806573049771	29	109	5.1	NA	NA	NA	1.44	NA	4.4	7.4	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000020	2402128798	f	VIP	1755-11-01	3	181.6706335869475	74.58953518381544	22.6	80	5.3	NA	NA	NA	NA	NA	5.5	12.9	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000020	2402006603	f	VIP	1755-12-25	3	184.98428747107118	80.07289667016097	23.4	87	5.4	NA	NA	NA	0.8	NA	5.9	5.9	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000020	2456031294	f	VIP	1755-11-21	3	181.04698065586544	80.30612255128302	24.5	79	6.52	NA	NA	NA	1.42	NA	6	7.1	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000021	2480967812	m	VIP	1759-12-15	0	166.70272580534998	72.25347685642762	26	NA	3.6	NA	NA	NA	1.53	NA	4.9	6.1	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000021	2481951917	m	VIP	1760-10-15	3	170.4297652814969	72.03483613688721	24.8	NA	6.819999999999999	NA	1.58	NA	1.72	NA	6	13.3	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000021	2456028261	m	VIP	1760-01-04	3	170.82761214987406	78.79159729663505	27	88	5.84	NA	NA	NA	0.8	NA	5.4	5.9	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000022	2455097663	m	VIP	1750-10-10	3	150.98396635657153	64.51312741383737	28.3	NA	6.04	NA	0.9	NA	0.8	NA	6.5	10.6	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000022	2456025626	m	VIP	1750-01-29	3	153.32886589243125	63.47630101281976	27	93	7.609999999999999	NA	NA	NA	0.8	NA	6.7	NA	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000022	2417901503	m	VIP	1750-10-30	3	158.31514530510532	66.418765867388	26.5	99	4.430000000000001	NA	NA	NA	1.3	NA	5.4	6.2	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000023	2402147719	f	VIP	1760-12-21	3	160.89813084904648	81.03009263854383	31.3	NA	6.3	NA	NA	NA	NA	NA	5.2	5.8	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000023	2482953662	f	VIP	1761-12-23	1	180.7309560551489	84.59892725441514	25.9	92	4.56	NA	NA	NA	1.1300000000000001	NA	5.1	5.6	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000023	2482984003	f	VIP	1761-01-10	3	170.84839618339615	87.56752343531608	30	94	NA	NA	NA	NA	3.67	NA	4.9	3.9	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000024	2482922941	f	VIP	1760-06-20	3	172.2828850642577	74.50029514002121	25.1	NA	6.2	NA	NA	4.3	1.1	NA	9.4	6.2	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000024	2456015255	f	VIP	1761-05-22	3	190.3103114286308	81.85271307750112	22.6	NA	6.470000000000001	NA	NA	NA	NA	NA	5	6.9	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000024	2480976045	f	VIP	1760-07-10	3	197.27280905745494	85.61643462552196	22	NA	4.88	NA	1.1800000000000002	NA	1.6800000000000002	NA	5.5	7.3	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000025	2456065241	m	VIP	1750-02-05	3	165.7764709994809	70.62832452619725	25.7	NA	5.970000000000001	NA	1.47	NA	2.07	NA	5.2	9.3	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000025	2402046931	m	VIP	1749-04-16	3	195.78562235575376	77.43066004088425	20.2	72	5.2	NA	NA	NA	0.97	NA	4.7	6.5	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000025	2402159456	m	VIP	1750-02-25	3	182.83225156097228	80.5605936281597	24.1	NA	4.6	NA	1.1	NA	NA	NA	5	7	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000026	2456033370	m	VIP	1755-04-12	3	172.41102056662893	71.93585523104024	24.2	NA	6.07	NA	NA	NA	2.24	NA	4.5	8.2	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000026	2402155076	m	VIP	1755-05-02	3	189.9542938164399	79.74262056385827	22.1	75	3.7600000000000002	NA	NA	NA	1.12	NA	5.5	5.6	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000026	2460992295	m	VIP	1755-05-02	3	178.19147553739018	79.38050488548082	25	NA	4.5	NA	NA	NA	0.5700000000000001	NA	4.8	NA	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000027	2483017244	f	VIP	1753-10-15	3	146.98808660818773	74.75502171238689	34.6	NA	2.59	NA	NA	NA	1.23	NA	6.4	NA	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000027	2482957380	f	VIP	1753-08-06	3	176.5372617507147	74.79697148745684	24	87	4.7	NA	NA	NA	0.8	NA	5.3	7.4	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000027	2419011063	f	VIP	1753-11-04	3	165.7492044986992	82.69312436377434	30.1	101	4.8	NA	NA	NA	0.97	NA	5.2	5.6	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000028	2402174271	f	VIP	1759-12-23	3	151.43129920392556	70.62883020605358	30.8	97	5.819999999999999	NA	1.58	NA	0.93	NA	5.5	NA	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000028	2455069054	f	VIP	1760-10-24	3	141.74564425908494	79.96547411236378	39.8	132	5.88	NA	NA	NA	0.8	NA	4.6	6.2	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000028	2455996546	f	VIP	1760-01-12	3	190.26647050115025	85.07312502286794	23.5	81	4	NA	0.99	NA	0.76	NA	NA	5.6	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000029	2456050112	m	VIP	1754-06-22	3	143.25617020006115	49.04836941792946	23.9	NA	5	NA	NA	NA	1.95	NA	5.3	1.7	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000029	2456043702	m	VIP	1754-05-24	3	146.3856288594797	50.5718555143414	23.6	85	5.33	NA	1.37	NA	0.92	NA	5.5	7.6	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000029	2456003264	m	VIP	1754-07-12	3	154.0005555860735	58.10461924600731	24.5	NA	NA	NA	NA	3.7	NA	NA	4.3	7.5	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000030	2526019164	m	VIP	1759-02-21	3	184.28108743489153	71.99418067471461	21.2	NA	5.91	NA	NA	NA	1.1500000000000001	NA	4.3	7.3	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000030	2402168673	m	VIP	1759-11-03	3	159.8298086211204	71.78304530405777	28.1	NA	5.5	NA	NA	NA	NA	NA	5	6	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000030	2402115324	m	VIP	1759-03-13	3	211.87935355223019	79.0114344126113	17.6	NA	5.58	NA	NA	NA	1.55	NA	5.5	12.8	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000003	2483012150	f	MA	1809-07-28	0	NA	82.1274354410932	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000004	2480977255	f	MA	1809-09-07	0	NA	70.81365501500653	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000007	2456008529	f	MA	1806-06-07	0	160.9909808574234	73.53923409099279	28.373702422145325	NA	NA	NA	NA	NA	NA	NA	NA	NA	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000008	2456034975	f	MA	1809-02-24	0	NA	73.59449036364832	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000011	2402140359	f	MA	1808-03-17	0	171.546854812397	80.285604503046045	27.28174603174602	NA	NA	NA	NA	NA	NA	NA	NA	NA	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000001	2402031362	m	MO	1805-11-30	1	178.56841160034404	75.46881485496681	23.66782006920416	92	NA	3.96	NA	8888	NA	2.62	NA	4	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000002	2402109375	m	MO	1805-12-09	1	161.60525901700666	77.86148287048157	29.813412655489458	107	NA	6.77338	NA	8888	NA	1.07	NA	NA	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000003	2482980559	f	MO	1805-04-15	3	181.7639907452205	82.1274354410932	24.85836512891664	90.5	NA	5.92	NA	8888	NA	NA	NA	4.3	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000004	2456008243	f	MO	1805-10-31	1	170.22270937303875	70.81365501500653	24.438920205875142	81.5	NA	6.854499999999999	1.22	8888	NA	1.2	5.1	NA	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
-p0000005	2480956194	m	MO	1805-08-23	3	167.75703996054295	80.17057337136637	28.48744375090724	101	NA	6.317079999999999	NA	8888	NA	0.91	NA	NA	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv
+predict_id	pat_code	sex	event_setting	event_date	event_fasting	langd	vikt	bmi	midja	skol	skol_mo	hdl	ldl	stg	stg_mo	blods0	blods2	event_type	sample_type	sample_anti_coagulant	dataset.filename	dataset.datatype
+p0000001	2402142907	m	VIP	1760-02-01	1	159.69063172761247	73.18815086268853	28.7	NA	5.55	NA	NA	NA	2.1	NA	6.1	6	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000001	2455982169	m	VIP	1760-12-10	3	167.8094322226795	75.46881485496681	26.8	NA	6.1	NA	1.25	NA	1.33	NA	6.4	4.8	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000001	2402212410	m	VIP	1760-02-21	3	158.21157294626843	82.10135795035433	32.8	NA	6.29	NA	NA	1.2	0.8	NA	5.7	5.3	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000002	2456060916	m	VIP	1760-05-09	3	159.9209076703324	74.93386136060174	29.3	NA	6	NA	NA	NA	1.61	NA	4.6	6.3	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000002	2402109696	m	VIP	1761-04-03	1	188.12650829414278	77.86148287048157	22	NA	5.3	NA	NA	NA	0.77	NA	4.4	6.2	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000002	2402152765	m	VIP	1760-05-29	3	200.1889990153358	79.75051430025663	19.9	NA	5.6499999999999995	NA	NA	NA	1.21	NA	5.4	5.8	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000003	2481010202	f	VIP	1752-07-16	0	183.66207417629192	77.24572465378945	22.9	NA	4.71	NA	1.1800000000000002	NA	1.28	NA	5.8	6.3	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000003	2402056624	f	VIP	1752-02-21	3	164.09457033513686	82.1274354410932	30.5	NA	4.470000000000001	NA	1.1	NA	1.7	NA	4.9	8.3	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000003	2402118249	f	VIP	1752-08-05	3	187.31660251516476	89.47314942345177	25.5	NA	6.22	NA	1.2	NA	1	NA	4.7	7.2	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000004	2481004594	f	VIP	1759-01-27	3	146.33137550343133	65.73751537214952	30.7	NA	4.07	NA	NA	NA	1.46	NA	NA	1.1	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000004	2418947165	f	VIP	1759-10-05	3	182.76396652488353	70.81365501500653	21.2	NA	6.1	NA	NA	NA	0.8	NA	NA	8.8	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000004	2402143159	f	VIP	1759-02-16	3	167.22624986876096	73.54694703679519	26.3	NA	5.53	NA	NA	NA	NA	NA	5.9	7.5	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000005	2417891093	m	VIP	1756-10-22	3	179.98370687772683	73.5346858630858	22.7	NA	6.9	NA	NA	5.2	1.1300000000000001	NA	5.5	7.3	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000005	2405035156	m	VIP	1757-02-12	3	183.15068375174226	80.17057337136637	23.9	NA	6.5	NA	NA	NA	1.61	NA	5.6	8.9	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000005	2402137344	m	VIP	1756-11-11	3	205.19317226595942	86.31368778636377	20.5	67	5.28	NA	2.11	NA	1.8	NA	5.6	2.9	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000006	2456028235	m	VIP	1755-05-03	3	151.9867619084405	57.9809392464866	25.1	101	7.24	NA	NA	NA	0.49	NA	4.5	7.2	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000006	2480986669	m	VIP	1755-05-27	3	161.77972437677508	60.72061578906673	23.2	NA	4.6	NA	1.29	NA	1.25	NA	5.1	7	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000006	2402162627	m	VIP	1755-05-23	3	179.13644570600889	68.03051630198556	21.2	74	NA	NA	NA	NA	NA	NA	5.9	6.8	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000007	2481022940	f	VIP	1757-12-12	3	161.93543195513874	64.50878694134353	24.6	NA	NA	NA	NA	NA	0.9400000000000001	NA	5.7	3.7	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000007	2481040167	f	VIP	1758-06-13	3	179.2015699145021	73.53923409099279	22.9	NA	4.819999999999999	NA	NA	1.5	NA	NA	6.3	8.1	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000007	2480975801	f	VIP	1758-01-01	3	145.6196259619542	73.79366261924206	34.8	NA	4.619999999999999	NA	NA	NA	0.8	NA	5.5	6.9	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000008	2402130131	f	VIP	1750-09-22	3	156.64544591028107	64.04364684076437	26.1	NA	5.659999999999999	NA	1.07	NA	0.96	NA	5.2	7.1	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000008	2525970735	f	VIP	1750-01-08	3	180.45479708011342	73.59449036364832	22.6	NA	6.55	NA	1.1700000000000002	3.3	NA	NA	6	7.3	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000008	2455035870	f	VIP	1750-10-12	3	172.42020575176022	71.94352019057997	24.2	NA	5	NA	NA	NA	0.8200000000000001	NA	6.6	5.9	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000009	2456085309	m	VIP	1756-12-28	3	161.73405533577784	53.10054645037358	20.3	NA	6.3	NA	NA	NA	4.41	NA	5.5	6.7	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000009	2456002256	m	VIP	1757-05-02	3	129.78687909985746	53.90282875673925	32	NA	5.1	NA	NA	NA	1.86	NA	5.4	NA	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000009	2402032881	m	VIP	1757-01-17	3	NA	53.53139432149087	NA	NA	5.25	NA	0.98	NA	0.96	NA	5.3	5.7	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000010	2480964093	m	VIP	1757-07-26	3	NA	70.25285824824579	NA	NA	5.9	NA	NA	NA	NA	NA	4.9	4.3	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000010	2402119009	m	VIP	1758-01-02	3	187.01826533081126	76.9468294481606	22	NA	6.9	NA	0.89	NA	2.54	NA	5.6	7.2	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000010	2483032496	m	VIP	1757-08-15	3	183.06177300627579	83.10879958577908	24.8	NA	3.8	NA	NA	4.6	0.81	NA	4.3	7.3	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000011	2483029277	f	VIP	1754-08-08	3	155.3570323495965	71.44199020140178	29.6	NA	5.56	NA	NA	4.2	2.07	NA	5.2	7	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000011	2483012267	f	VIP	1754-07-18	3	172.1211326899378	80.285604503046045	27.1	NA	4.39	NA	NA	NA	NA	NA	5.7	9.6	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000011	2456065239	f	VIP	1754-08-28	3	204.50930553549648	89.50347994830764	21.4	NA	4.4	NA	0.81	NA	NA	NA	4.5	7.4	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000012	2462997445	f	VIP	1757-09-26	3	147.05724390190858	67.47259891015933	31.2	NA	5.609999999999999	NA	1.49	NA	1.44	NA	5.2	6	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000012	2482947570	f	VIP	1758-03-15	3	167.88041139431127	72.71428792720185	25.8	NA	5.930000000000001	NA	NA	NA	0.8	NA	6.6	6.4	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000012	2402185819	f	VIP	1757-10-16	3	168.29267300570078	77.3202169396122	27.3	NA	5.159999999999999	NA	NA	NA	1.25	NA	5	7.7	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000013	2480961995	m	VIP	1760-04-28	1	191.19849728496163	75.30714264989662	20.6	82	3.23	NA	1.06	NA	1.3	NA	4.9	6.1	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000013	2418925778	m	VIP	1761-03-21	3	163.1164725909935	80.88523023680615	30.4	NA	4.9	NA	NA	NA	1.55	NA	5.3	5.8	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000013	2463066172	m	VIP	1760-05-18	1	178.5812659308354	86.10642506194132	27	NA	4.83	NA	NA	NA	1.02	NA	5.6	5	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000014	2402101924	m	VIP	1752-03-04	3	141.98358120727278	64.91306621046397	32.2	NA	4.6499999999999995	NA	NA	NA	1.97	NA	2.9	6.2	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000014	2483009118	m	VIP	1751-09-17	3	156.18993203948847	74.16169640632006	30.4	NA	4.2700000000000005	NA	1.6	NA	2	NA	4.9	6.3	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000014	2483064347	m	VIP	1752-03-24	3	190.20381284123843	74.52563026385042	20.6	NA	4.99	NA	NA	NA	0.9500000000000001	NA	5.3	7	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000015	2403046823	f	VIP	1754-08-28	3	162.79094425148975	60.422032689064935	22.8	NA	6.51	NA	1.6300000000000001	NA	1.3900000000000001	NA	5.9	7.5	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000015	2456001748	f	VIP	1754-08-10	3	134.92096684246826	68.62782569727321	37.7	NA	5.56	NA	NA	3.4	0.8	NA	6.4	8.8	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000015	2482981119	f	VIP	1754-09-17	1	183.05594600786284	73.05066502405722	21.8	NA	6.68	NA	NA	NA	NA	NA	5.2	6.2	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000016	2402050030	f	VIP	1760-05-22	3	169.56373639805219	73.02972618122102	25.4	NA	4.33	NA	2.57	NA	2.71	NA	5.3	5.6	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000016	2456042199	f	VIP	1761-04-18	3	178.77953380908062	77.98757696994097	24.4	NA	6.05	NA	1.06	NA	NA	NA	5.9	10.3	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000016	2483041071	f	VIP	1760-06-11	3	175.05432864388837	78.14224584125431	25.5	NA	6.4	NA	NA	NA	0.99	NA	5.7	NA	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000017	2463960935	m	VIP	1760-11-05	3	162.35996206402515	64.3202477666933	24.4	92	6.85	NA	1.3900000000000001	NA	NA	NA	5.1	4.8	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000017	2418981986	m	VIP	1761-10-30	3	184.08139510871592	72.17709485361463	21.3	NA	7.56	NA	NA	NA	4.4	NA	4.9	5.1	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000017	2482985014	m	VIP	1760-11-25	3	179.36024938125433	75.5997327865485	23.5	89	3.92	NA	NA	NA	NA	NA	5.5	6.3	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000018	2402125838	m	VIP	1750-07-08	3	183.46422364592962	80.10870883204876	23.8	NA	4.75	NA	0.99	NA	NA	NA	4.9	13.3	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000018	2456005892	m	VIP	1749-10-12	1	179.0131236642076	79.47333214116185	24.8	NA	5.03	NA	NA	NA	NA	NA	4.4	7.2	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000018	2483003337	m	VIP	1750-07-28	3	181.76860610030238	81.27797236257135	24.6	NA	7.52	NA	NA	NA	0.63	NA	4.7	5.7	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000019	2481041886	f	VIP	1754-10-22	3	156.34964160905446	66.97987658170658	27.4	NA	5.819999999999999	NA	1	NA	2.14	NA	5.4	5.8	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000019	2483004739	f	VIP	1754-10-14	3	179.55739022684568	74.15396968567418	23	NA	6.34	NA	6.2	NA	2.56	NA	5.2	NA	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000019	2482969401	f	VIP	1754-11-11	3	159.25263569571996	73.54806573049771	29	109	5.1	NA	NA	NA	1.44	NA	4.4	7.4	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000020	2402128798	f	VIP	1755-11-01	3	181.6706335869475	74.58953518381544	22.6	80	5.3	NA	NA	NA	NA	NA	5.5	12.9	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000020	2402006603	f	VIP	1755-12-25	3	184.98428747107118	80.07289667016097	23.4	87	5.4	NA	NA	NA	0.8	NA	5.9	5.9	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000020	2456031294	f	VIP	1755-11-21	3	181.04698065586544	80.30612255128302	24.5	79	6.52	NA	NA	NA	1.42	NA	6	7.1	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000021	2480967812	m	VIP	1759-12-15	0	166.70272580534998	72.25347685642762	26	NA	3.6	NA	NA	NA	1.53	NA	4.9	6.1	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000021	2481951917	m	VIP	1760-10-15	3	170.4297652814969	72.03483613688721	24.8	NA	6.819999999999999	NA	1.58	NA	1.72	NA	6	13.3	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000021	2456028261	m	VIP	1760-01-04	3	170.82761214987406	78.79159729663505	27	88	5.84	NA	NA	NA	0.8	NA	5.4	5.9	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000022	2455097663	m	VIP	1750-10-10	3	150.98396635657153	64.51312741383737	28.3	NA	6.04	NA	0.9	NA	0.8	NA	6.5	10.6	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000022	2456025626	m	VIP	1750-01-29	3	153.32886589243125	63.47630101281976	27	93	7.609999999999999	NA	NA	NA	0.8	NA	6.7	NA	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000022	2417901503	m	VIP	1750-10-30	3	158.31514530510532	66.418765867388	26.5	99	4.430000000000001	NA	NA	NA	1.3	NA	5.4	6.2	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000023	2402147719	f	VIP	1760-12-21	3	160.89813084904648	81.03009263854383	31.3	NA	6.3	NA	NA	NA	NA	NA	5.2	5.8	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000023	2482953662	f	VIP	1761-12-23	1	180.7309560551489	84.59892725441514	25.9	92	4.56	NA	NA	NA	1.1300000000000001	NA	5.1	5.6	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000023	2482984003	f	VIP	1761-01-10	3	170.84839618339615	87.56752343531608	30	94	NA	NA	NA	NA	3.67	NA	4.9	3.9	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000024	2482922941	f	VIP	1760-06-20	3	172.2828850642577	74.50029514002121	25.1	NA	6.2	NA	NA	4.3	1.1	NA	9.4	6.2	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000024	2456015255	f	VIP	1761-05-22	3	190.3103114286308	81.85271307750112	22.6	NA	6.470000000000001	NA	NA	NA	NA	NA	5	6.9	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000024	2480976045	f	VIP	1760-07-10	3	197.27280905745494	85.61643462552196	22	NA	4.88	NA	1.1800000000000002	NA	1.6800000000000002	NA	5.5	7.3	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000025	2456065241	m	VIP	1750-02-05	3	165.7764709994809	70.62832452619725	25.7	NA	5.970000000000001	NA	1.47	NA	2.07	NA	5.2	9.3	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000025	2402046931	m	VIP	1749-04-16	3	195.78562235575376	77.43066004088425	20.2	72	5.2	NA	NA	NA	0.97	NA	4.7	6.5	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000025	2402159456	m	VIP	1750-02-25	3	182.83225156097228	80.5605936281597	24.1	NA	4.6	NA	1.1	NA	NA	NA	5	7	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000026	2456033370	m	VIP	1755-04-12	3	172.41102056662893	71.93585523104024	24.2	NA	6.07	NA	NA	NA	2.24	NA	4.5	8.2	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000026	2402155076	m	VIP	1755-05-02	3	189.9542938164399	79.74262056385827	22.1	75	3.7600000000000002	NA	NA	NA	1.12	NA	5.5	5.6	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000026	2460992295	m	VIP	1755-05-02	3	178.19147553739018	79.38050488548082	25	NA	4.5	NA	NA	NA	0.5700000000000001	NA	4.8	NA	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000027	2483017244	f	VIP	1753-10-15	3	146.98808660818773	74.75502171238689	34.6	NA	2.59	NA	NA	NA	1.23	NA	6.4	NA	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000027	2482957380	f	VIP	1753-08-06	3	176.5372617507147	74.79697148745684	24	87	4.7	NA	NA	NA	0.8	NA	5.3	7.4	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000027	2419011063	f	VIP	1753-11-04	3	165.7492044986992	82.69312436377434	30.1	101	4.8	NA	NA	NA	0.97	NA	5.2	5.6	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000028	2402174271	f	VIP	1759-12-23	3	151.43129920392556	70.62883020605358	30.8	97	5.819999999999999	NA	1.58	NA	0.93	NA	5.5	NA	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000028	2455069054	f	VIP	1760-10-24	3	141.74564425908494	79.96547411236378	39.8	132	5.88	NA	NA	NA	0.8	NA	4.6	6.2	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000028	2455996546	f	VIP	1760-01-12	3	190.26647050115025	85.07312502286794	23.5	81	4	NA	0.99	NA	0.76	NA	NA	5.6	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000029	2456050112	m	VIP	1754-06-22	3	143.25617020006115	49.04836941792946	23.9	NA	5	NA	NA	NA	1.95	NA	5.3	1.7	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000029	2456043702	m	VIP	1754-05-24	3	146.3856288594797	50.5718555143414	23.6	85	5.33	NA	1.37	NA	0.92	NA	5.5	7.6	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000029	2456003264	m	VIP	1754-07-12	3	154.0005555860735	58.10461924600731	24.5	NA	NA	NA	NA	3.7	NA	NA	4.3	7.5	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000030	2526019164	m	VIP	1759-02-21	3	184.28108743489153	71.99418067471461	21.2	NA	5.91	NA	NA	NA	1.1500000000000001	NA	4.3	7.3	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000030	2402168673	m	VIP	1759-11-03	3	159.8298086211204	71.78304530405777	28.1	NA	5.5	NA	NA	NA	NA	NA	5	6	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000030	2402115324	m	VIP	1759-03-13	3	211.87935355223019	79.0114344126113	17.6	NA	5.58	NA	NA	NA	1.55	NA	5.5	12.8	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000003	2483012150	f	MA	1809-07-28	0	NA	82.1274354410932	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000004	2480977255	f	MA	1809-09-07	0	NA	70.81365501500653	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000007	2456008529	f	MA	1806-06-07	0	160.9909808574234	73.53923409099279	28.373702422145325	NA	NA	NA	NA	NA	NA	NA	NA	NA	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000008	2456034975	f	MA	1809-02-24	0	NA	73.59449036364832	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000011	2402140359	f	MA	1808-03-17	0	171.546854812397	80.285604503046045	27.28174603174602	NA	NA	NA	NA	NA	NA	NA	NA	NA	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000001	2402031362	m	MO	1805-11-30	1	178.56841160034404	75.46881485496681	23.66782006920416	92	NA	3.96	NA	8888	NA	2.62	NA	4	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000002	2402109375	m	MO	1805-12-09	1	161.60525901700666	77.86148287048157	29.813412655489458	107	NA	6.77338	NA	8888	NA	1.07	NA	NA	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000003	2482980559	f	MO	1805-04-15	3	181.7639907452205	82.1274354410932	24.85836512891664	90.5	NA	5.92	NA	8888	NA	NA	NA	4.3	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000004	2456008243	f	MO	1805-10-31	1	170.22270937303875	70.81365501500653	24.438920205875142	81.5	NA	6.854499999999999	1.22	8888	NA	1.2	5.1	NA	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
+p0000005	2480956194	m	MO	1805-08-23	3	167.75703996054295	80.17057337136637	28.48744375090724	101	NA	6.317079999999999	NA	8888	NA	0.91	NA	NA	health,sample	plasma	EDTA	/fakelake/1_bronze/nshds/nshds_mock.tsv	register
