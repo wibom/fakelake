@@ -125,6 +125,9 @@ for (mydir in datadirs) {
     } else if (str_to_lower(data_type) == "olink") {
       analytes_meta <- get_olink_proteins(abspath_dataset)
     }
+    # enter relative file path in meta dataframe to include in index
+    analytes_meta$dataset.filename <- str_remove(abspath_dataset, here())
+    
     abspath_analytes_meta <- file.path(
       dir_lakedata, dir_silver, dir_id, ds, 
       glue("meta_analytes_{ds}_{data_type}.tsv")
