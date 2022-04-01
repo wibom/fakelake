@@ -2,110 +2,25 @@ dataset:
   filename: /fakelake/1_bronze/nshds/nshds_mock.tsv
 var1:
   id: predict_id
-  aliases: ~
   class: individual identifier
-  derivation: ~
-  embargo: ~
-  label: ~
-  method: ~
-  note: ~
-  unit: ~
-  validation: ~
-  verfified: ~
 var2:
   id: pat_code
-  aliases: ~
   class: event identifier
-  derivation: ~
-  embargo: ~
   label: patcode
-  method: ~
   note: |
     Internal event identifier used at EBF. The code is unique for an individual at an event
-  unit: ~
-  validation: ~
-  verfified: ~
 var3:
   id: sex
-  aliases: ~
-  class: ~
-  derivation: ~
-  embargo: ~
-  label: ~
-  method: ~
-  note: ~
-  unit: ~
-  validation: ~
-  verfified: ~
 var4:
   id: event_setting
-  aliases: ~
-  class: ~
-  derivation: ~
-  embargo: ~
-  label: ~
-  method: ~
-  note: ~
-  unit: ~
-  validation: ~
-  verfified: ~
 var5:
   id: enk
-  aliases: ~
-  class: ~
-  derivation: ~
-  embargo: ~
-  label: ~
-  method: ~
-  note: ~
-  unit: ~
-  validation: ~
-  verfified: ~
 var6:
   id: fasta_enk
-  aliases: ~
-  class: ~
-  derivation: ~
-  embargo: ~
-  label: ~
-  method: ~
-  note: ~
-  unit: ~
-  validation: ~
-  verfified: ~
 var7:
   id: event_date
-  aliases: ~
   class: Date
-  derivation: ~
-  embargo: ~
-  label: ~
-  method: ~
-  note: ~
-  unit: ~
-  validation: ~
-  verfified: ~
 var8:
   id: sambo
-  aliases: ~
-  class: ~
-  derivation: ~
-  embargo: ~
-  label: ~
-  method: ~
-  note: ~
-  unit: ~
-  validation: ~
-  verfified: ~
 var9:
   id: event_type
-  aliases: ~
-  class: ~
-  derivation: ~
-  embargo: ~
-  label: ~
-  method: ~
-  note: ~
-  unit: ~
-  validation: ~
-  verfified: ~
