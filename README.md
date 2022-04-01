@@ -300,3 +300,32 @@ GET /_search
 ```
 
 NOTE: this way it's not necessary to escape forward slash characters.
+
+
+# Investigations remaining
+
+1) Is it possible to restore a dashbord in Kibana if the underlaying index is
+   deleted and replaced?
+    * __Solution 1__: It is possible to open each dashboard panel and selct which
+      `dataview` to use ( I think? Double check!)
+    * __Solution 2__: It should be possible to empty an index without deleting it:
+      (https://discuss.elastic.co/t/delete-all-data-from-index-without-deleting-index/87661/2)
+    * Can one export the dashbord, then import and re-apply to new index?
+
+2) Is it worth while to set up a dynamic mapping template for each index?
+    * __Pros__:
+        + This way it is possible to map for example `predict_id` as a keyword,
+          and use it as such in queries, without specifying 
+          `predict_id.keyword` (which would do the same if using the default 
+          dynamic mapping)
+    * __Cons__: 
+        + There are likley to exist variables that we have not 
+          mapped manually, nor had in consideration when creating the dynamic
+          template. These will be mapped dynamically by Elasticsearch's default
+          settings. Whenever we wish to use one of these variables for 
+          "keyword-queries", we must append the `.keyword` suffix. 
+          <br>
+          Thus, perhaps it is better to always append the `.keyword` suffix, 
+          even for the variables that we know beforehand we only ever want to 
+          use as keywords (e.g. `predict_id`)???
+          
