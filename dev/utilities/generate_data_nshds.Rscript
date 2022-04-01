@@ -7,8 +7,8 @@ library(tidyverse)
 source(here("dev/utilities/utilities.R"))
 
 args = commandArgs(trailingOnly = TRUE)
-abspath_lake_yaml <- args[1]  
-abspath_reference <- args[2]  
+abspath_lake_yaml <- args[1]
+abspath_reference <- args[2]
 dir_template_data <- args[3]
 
 lakesettings <- read_yaml(abspath_lake_yaml)
@@ -295,12 +295,18 @@ meta_vardict_health_yaml <-
   read_yaml()
 # enter relative file path in meta-yaml to to include in index
 meta_vardict_health_yaml$dataset$filename <- relpath_nshds_file_bronze
+# filter out null-values
+meta_vardict_health_yaml_filtered <- 
+  map(meta_vardict_health_yaml, ~ ..1 %>% discard(is.null))
 
 # Write to silver
 abspath_meta_vardict_health_silver <- 
   basename(nshds_settings$meta_vardict_health_template) %>% 
   here(dir_silver, .)
-write_yaml(meta_vardict_health_yaml, abspath_meta_vardict_health_silver)
+write_yaml(
+  meta_vardict_health_yaml_filtered, 
+  abspath_meta_vardict_health_silver
+)
 
 
 ## Vardict - Questionnaire ----
@@ -309,13 +315,16 @@ meta_vardict_questionnaire_yaml <-
   read_yaml()
 # enter relative file path in meta-yaml to to include in index
 meta_vardict_questionnaire_yaml$dataset$filename <- relpath_nshds_file_bronze
+# filter out null-values (do not include in Elasticsearch index)
+meta_vardict_questionnaire_yaml_filtered <- 
+  map(meta_vardict_questionnaire_yaml, ~ ..1 %>% discard(is.null))
 
 # Write to silver
 abspath_meta_vardict_questionnaire_silver <- 
   basename(nshds_settings$meta_vardict_questionnaire_template) %>% 
   here(dir_silver, .)
 write_yaml(
-  meta_vardict_questionnaire_yaml, 
+  meta_vardict_questionnaire_yaml_filtered, 
   abspath_meta_vardict_questionnaire_silver
 )
 
@@ -350,7 +359,8 @@ idxsettings_vardict_health <- nshds_settings$es_indices$index_health_vardict
 write_esindex(
   datafile = abspath_meta_vardict_health_silver, 
   target_indexfile = file.path(dir_gold, idxsettings_vardict_health$index_file), 
-  index_id = idxsettings_vardict_health$index_id
+  index_id = idxsettings_vardict_health$index_id, 
+  format = "long"
 )
 
 ## Vardict - Questionnaire ----
@@ -358,5 +368,6 @@ idxsettings_vardict_qnr <- nshds_settings$es_indices$index_questionnaire_vardict
 write_esindex(
   datafile = abspath_meta_vardict_questionnaire_silver, 
   target_indexfile = file.path(dir_gold, idxsettings_vardict_qnr$index_file), 
-  index_id = idxsettings_vardict_qnr$index_id
+  index_id = idxsettings_vardict_qnr$index_id,
+  format = "long"
 )

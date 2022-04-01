@@ -328,7 +328,8 @@ generate_data_omics <- function(abspath_dataset, n_samples_tot, data_type, seed,
   }
 
 }
-write_esindex <- function(datafile, target_indexfile, index_id) {
+write_esindex <- function(datafile, target_indexfile, index_id, 
+                          format = "wide") {
   dir_target <- dirname(target_indexfile)
   if (!dir.exists(dir_target)) {
     dir.create(dir_target, recursive = TRUE)
@@ -344,12 +345,28 @@ write_esindex <- function(datafile, target_indexfile, index_id) {
       enframe() %>% 
       pivot_wider(names_from = "name", values_from = value)
   } else if (str_detect(datafile, "\\.yaml")) {
-    idx_data <- 
-      datafile %>% 
-      read_yaml() %>% 
-      unlist(recursive = FALSE) %>% 
-      enframe() %>% 
-      pivot_wider(names_from = "name", values_from = value)      
+      idx_data <- 
+        datafile %>% 
+        read_yaml() %>% 
+        unlist(recursive = FALSE) %>% 
+        enframe() %>% 
+        pivot_wider(names_from = "name", values_from = value)
+      
+      if (format == "long") {
+        dataset.filename <- unlist(idx_data$dataset.filename)
+        idx_data <- 
+          idx_data %>% 
+          pivot_longer(
+            everything(),
+            names_to = c("varcount", ".value"),
+            names_pattern = "(var\\d+)\\.(.+)", 
+            values_drop_na = TRUE
+            
+          ) %>% 
+          unnest(cols = everything()) %>% 
+          select(-varcount) %>% 
+          mutate(dataset.filename = dataset.filename)
+      }
   }
   docs_bulk_prep(
     idx_data, 
