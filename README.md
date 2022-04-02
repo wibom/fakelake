@@ -328,4 +328,26 @@ NOTE: this way it's not necessary to escape forward slash characters.
           Thus, perhaps it is better to always append the `.keyword` suffix, 
           even for the variables that we know beforehand we only ever want to 
           use as keywords (e.g. `predict_id`)???
+    * __OR..__:
+        + map every "string" as keyword (except for example `abstract`, and 
+        possibly some additional fields). When necessary to query a keyword in 
+        a non-exact way, one can use a `fuzzy` query.
+        (https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-fuzzy-query.html) 
+        <br>
+
+          ```bash
+          GET /_search
+          {
+            "query": {
+              "fuzzy": {
+                "PI.1.name.keyword": {
+                  "value": "Beatrice elin"
+                }
+              }
+            }
+          }
+          ```
+        + << Will try this!! >>
+          
+
           
