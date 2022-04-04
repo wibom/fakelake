@@ -51,7 +51,7 @@ List all datasets and how they overlap in terms of individuals:
 body <- '{
   "aggs": {
     "files": {
-      "terms": { "field": "dataset.filename.keyword" }
+      "terms": { "field": "dataset.filename" }
     }
   }
 }'
@@ -72,14 +72,14 @@ get_individuals_in_dataset <- function(filename) {
         "bool": {{
           "filter": {{
             "term": {{
-              "dataset.filename.keyword": "{filename}"
+              "dataset.filename": "{filename}"
             }}
           }}
         }}
       }}, 
       "aggs": {{
         "individuals": {{
-          "terms": {{"field": "predict_id.keyword", "size": 500}}
+          "terms": {{"field": "predict_id", "size": 500}}
         }}
       }}
     }}'
@@ -100,7 +100,33 @@ print(individuals_per_file)
 
 
 # Query 2
-**Get number of samples (not unique) characterized by Metabolon metabolomics**
+**Get all samples characterized by Metabolon metabolomics**
+
+```{r}
+body <- '{
+  "query": {
+    "bool": {
+      "filter": {
+        "term": {
+          "dataset.analytics_platform": "Metabolon"
+        }
+      }
+    }
+  }, 
+  "aggs": {
+    "files": {
+      "terms": { "field": "dataset.filename" }
+    }
+  }  
+}'
+res <- Search(x, index = "datasets", body = body, source = FALSE)
+filenames <- map_chr(res$aggregations$files$buckets, ~ ..1$key)
+
+# Get event_id: predict_id | event_date | event_setting
+# Add tally (there may be >1 document per event_id)
+
+```
+
 
 
 # Query 3
