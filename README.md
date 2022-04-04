@@ -301,53 +301,99 @@ GET /_search
 
 NOTE: this way it's not necessary to escape forward slash characters.
 
+# Investigations
 
-# Investigations remaining
+## Completed
 
-1) Is it possible to restore a dashbord in Kibana if the underlaying index is
-   deleted and replaced?
-    * __Solution 1__: It is possible to open each dashboard panel and selct which
-      `dataview` to use ( I think? Double check!)
-    * __Solution 2__: It should be possible to empty an index without deleting it:
-      (https://discuss.elastic.co/t/delete-all-data-from-index-without-deleting-index/87661/2)
-    * Can one export the dashbord, then import and re-apply to new index?
+### 1. Reuse Kibana dashboard when underlaying indices are deleted and replaced
 
-2) Is it worth while to set up a dynamic mapping template for each index?
-    * __Pros__:
-        + This way it is possible to map for example `predict_id` as a keyword,
-          and use it as such in queries, without specifying 
-          `predict_id.keyword` (which would do the same if using the default 
-          dynamic mapping)
-    * __Cons__: 
-        + There are likley to exist variables that we have not 
-          mapped manually, nor had in consideration when creating the dynamic
-          template. These will be mapped dynamically by Elasticsearch's default
-          settings. Whenever we wish to use one of these variables for 
-          "keyword-queries", we must append the `.keyword` suffix. 
-          <br>
-          Thus, perhaps it is better to always append the `.keyword` suffix, 
-          even for the variables that we know beforehand we only ever want to 
-          use as keywords (e.g. `predict_id`)???
-    * __OR..__:
-        + map every "string" as keyword (except for example `abstract`, and 
-        possibly some additional fields). When necessary to query a keyword in 
-        a non-exact way, one can use a `fuzzy` query.
-        (https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-fuzzy-query.html) 
-        <br>
+---------------
+**NOTE:** I investigated this topic in the belief that Kibana dashboards broke when the underlying indices were deleted and reloaded. **It turns out that is incorrect.** Dashbords depend on Kibana dataviews (previously known as index-patterns), and as long as dataviews are persistent the dashboards will be too. The dataviews in turn will work as expected as long as the indices’ name patterns are persistent.
 
+---------------
+
+<details> 
+<summary>More on this topic:</summary>
+A Kibana dashboard is a separate object that has a parent-relationship with a Kibana dataview, see: [Kibana: Stack Management > Saved objects]. A dashboard object can be exported and imported as a .ndjson file. The .ndjson file may be modified outside Kibana.  
+
+Likewise, Kibana dataviews are separate objects (that may have no relationships, or may have a child-relationship with a given Kiabana dashboard). They represent Elasticsearch indices through a pattern match based on the indices’ given name.
+
+The relationships (parent/child) between a Kibana dashboard object and a Kibana dataview object is defined through the dataview identifier. By default, when creating a new data-view in Kibana, it is automatically assigned a new uuid identifier. If the dataview is deleted it will essentially be impossible to replace it with the same uuid identifier. However, upon creating dataviews in Kibana GUI, one has the option to set the dataview identifier manually (i.e. without using the default uuid). It is thus possible to **set a persistent dataview identifier**, allowing the dataview to be deleted and replaced (with the same identifier). The parent-relationship with dashboards will then be kept intact. 
+
+Initial lookups to make dashboards persistent:
+
+  1) __Solution 1__: It is possible to open each dashboard panel and 
+    selct `Edit lens`, and from there select which  `dataview` to use
+      + Must be done manually for each panel
+  <br><br>
+
+  2) __Solution 2__: It is possible to delete all documents in an index, 
+    without deleting the actual index (uuid), through "delete by query":
+        + https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-delete-by-query.html
+        + 
           ```bash
-          GET /_search
+          POST my-index-000001/_delete_by_query?conflicts=proceed
           {
             "query": {
-              "fuzzy": {
-                "PI.1.name.keyword": {
-                  "value": "Beatrice elin"
-                }
-              }
+              "match_all": {}
             }
           }
           ```
-        + << Will try this!! >>
+        + It is said to be an expensive process: https://discuss.elastic.co/t/delete-all-data-from-index-without-deleting-index/87661/2)
+  <br><br>
+
+  3) __Solution 3__: It is possible to export the dashbord object as .ndjson, 
+     modify the .ndjson file to apply it to new data-views, then import back 
+     into Kibana.
+        + Here is a suggestion:
+          https://kifarunix.com/update-change-kibana-visualization-index-pattern/
+            * Requiers a lot of manual steps. *Can this be scripted??*
+
+</details>
+
+
+
+
+## Remaining
+
+### 1. Use dynamic mapping template when creating new indices?
+
+Is it worth while to set up a dynamic mapping template for each index?
+  * __Pros__:
+      + This way it is possible to map for example `predict_id` as a keyword,
+        and use it as such in queries, without specifying 
+        `predict_id.keyword` (which would do the same if using the default 
+        dynamic mapping)
+  * __Cons__: 
+      + There are likley to exist variables that we have not 
+        mapped manually, nor had in consideration when creating the dynamic
+        template. These will be mapped dynamically by Elasticsearch's default
+        settings. Whenever we wish to use one of these variables for 
+        "keyword-queries", we must append the `.keyword` suffix. 
+        <br>
+        Thus, perhaps it is better to always append the `.keyword` suffix, 
+        even for the variables that we know beforehand we only ever want to 
+        use as keywords (e.g. `predict_id`)???
+  * __OR..__:
+      + map every "string" as keyword (except for example `abstract`, and 
+      possibly some additional fields). When necessary to query a keyword in 
+      a non-exact way, one can use a `fuzzy` query.
+      (https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-fuzzy-query.html) 
+      <br>
+
+        ```bash
+        GET /_search
+        {
+          "query": {
+            "fuzzy": {
+              "PI.1.name.keyword": {
+                "value": "Beatrice elin"
+              }
+            }
+          }
+        }
+        ```
+      + << Will try this!! >>
           
 
           
