@@ -315,12 +315,12 @@ NOTE: this way it's not necessary to escape forward slash characters.
 <details> 
 <summary>More on this topic:</summary>
 A Kibana dashboard is a separate object that has a parent-relationship with a Kibana dataview, see: [Kibana: Stack Management > Saved objects]. A dashboard object can be exported and imported as a .ndjson file. The .ndjson file may be modified outside Kibana.  
-
+  
 Likewise, Kibana dataviews are separate objects (that may have no relationships, or may have a child-relationship with a given Kiabana dashboard). They represent Elasticsearch indices through a pattern match based on the indices’ given name.
-
+  
 The relationships (parent/child) between a Kibana dashboard object and a Kibana dataview object is defined through the dataview identifier. By default, when creating a new data-view in Kibana, it is automatically assigned a new uuid identifier. If the dataview is deleted it will essentially be impossible to replace it with the same uuid identifier. However, upon creating dataviews in Kibana GUI, one has the option to set the dataview identifier manually (i.e. without using the default uuid). It is thus possible to **set a persistent dataview identifier**, allowing the dataview to be deleted and replaced (with the same identifier). The parent-relationship with dashboards will then be kept intact. 
 
-Initial lookups to make dashboards persistent:
+#### Initial lookups to make dashboards persistent:
 
   1) __Solution 1__: It is possible to open each dashboard panel and 
     selct `Edit lens`, and from there select which  `dataview` to use
