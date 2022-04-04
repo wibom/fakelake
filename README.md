@@ -380,8 +380,8 @@ Is it worth while to set up a dynamic mapping template for each index?
       + map every "string" as keyword (except for example `abstract`, and 
       possibly some additional fields). When necessary to query a keyword in 
       a non-exact way, one can use a `fuzzy` query.
-      (https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-fuzzy-query.html) 
-      <br>
+      (https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-fuzzy-query.html)    
+      
         ```bash
         GET /_search
         {
@@ -394,6 +394,7 @@ Is it worth while to set up a dynamic mapping template for each index?
           }
         }
         ```
+      
       + << Will try this!! >>
           
 
