@@ -23,21 +23,24 @@ nshds:
     index_dataset: 
       index_file: index_dataset.ndjson
       index_id:   datasets
+      index_mapping_template: dev/es_mapping_templates/mapping_datasets.json
     index_health_vardict:
       index_file: index_health_vardict.ndjson
       index_id:   nshds--health--vardict
     index_health_events:
       index_file: index_health_events.ndjson
-      index_id:   events      
+      index_id:   nshds--health--sample--events
+      index_mapping_template: dev/es_mapping_templates/mapping_events.json   
     index_questionnaire_vardict:
       index_file: index_questionnaire_vardict.ndjson
       index_id:   nshds--questionnaire--vardict
     index_questionnaire_events:
       index_file: index_questionnaire_events.ndjson
-      index_id:   events
+      index_id:   nshds--questionnaire--events
+      index_mapping_template: dev/es_mapping_templates/mapping_events.json
 
-dir_1: 
-  id: x1
+x1: 
+  #id: x1
   individuals: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 
                19, 20]
   datasets:
@@ -59,12 +62,14 @@ dir_1:
         index_dataset: 
           index_file: index_dataset.ndjson
           index_id:   datasets
+          index_mapping_template: dev/es_mapping_templates/mapping_datasets.json
         index_analytes:
           index_file: index_analytes.ndjson
-          index_id:   data_x1--metabolon--analytes        
+          index_id:   x1--metabolon--analytes
         index_events: 
           index_file: index_events.ndjson
-          index_id:   events     
+          index_id:   x1--data1--metabolon--sample--events
+          index_mapping_template: dev/es_mapping_templates/mapping_events.json
     data_2:
       # Data (bronze)
       data_type: olink
@@ -82,15 +87,17 @@ dir_1:
         index_dataset: 
           index_file: index_dataset.ndjson
           index_id:   datasets
+          index_mapping_template: dev/es_mapping_templates/mapping_datasets.json
         index_analytes:
           index_file: index_analytes.ndjson
-          index_id:   data_x1--olink--analytes        
+          index_id:   x1--olink--analytes
         index_events: 
           index_file: index_events.ndjson
-          index_id:   events                      
+          index_id:   x1--data2--olink--sample--events
+          index_mapping_template: dev/es_mapping_templates/mapping_events.json
 
-dir_2: 
-  id: x2
+x2: 
+  #id: x2
   individuals: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 
                 19, 20, 21, 22, 23, 24, 25]
   datasets:
@@ -114,9 +121,11 @@ dir_2:
         index_dataset: 
           index_file: index_dataset.ndjson
           index_id:   datasets
+          index_mapping_template: dev/es_mapping_templates/mapping_datasets.json
         index_analytes:
           index_file: index_analytes.ndjson
-          index_id:   data_x2--metabolon--analytes        
+          index_id:   x2--metabolon--analytes
         index_events: 
           index_file: index_events.ndjson
-          index_id:   events    
+          index_id:   x2--data1--metabolon--sample--events
+          index_mapping_template: dev/es_mapping_templates/mapping_events.json

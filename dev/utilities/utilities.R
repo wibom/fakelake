@@ -336,7 +336,47 @@ write_esindex <- function(datafile, target_indexfile, index_id,
   }
   
   if (str_detect(datafile, "\\.tsv")) {
-    idx_data <- datafile %>% read_tsv(show_col_types = FALSE)
+    if (str_detect(datafile, "nshds")) {
+      # Typing the data will result in the `docs_bulk_prep()`-function producing
+      # a better bulk index-file (.ndjson), which inturn will help Elasticsearch
+      # dynamic index-mapping produce a better result.
+      #
+      idx_data <- 
+        datafile %>% 
+        read_tsv(
+          col_types = cols(
+            # copy/paste from dev/utilities/generate_data_nshds.Rscript
+            #   - section: 'NSHDS template'
+            #   - because original template is split into two files, health and 
+            #     questionnaire, some columns will be missing and `read_tsv` 
+            #     throw a warning
+            pin = "c",
+            pat_code = "c",
+            delproj = "c", 
+            pdatum = "D", 
+            q_date = "D", 
+            enk = "c",
+            fasta_enk = "c",
+            fasta_prov = "c", 
+            langd = "n", 
+            vikt = "n", 
+            bmi = "n", 
+            midja = "n", 
+            skol = "n", 
+            skol_mo = "n", 
+            hdl = "n",
+            ldl = "n", 
+            stg = "n", 
+            stg_mo = "n", 
+            blods0 = "n", 
+            blods2 = "n", 
+            sambo = "i"            
+          )
+        )
+      
+    } else {
+      idx_data <- datafile %>% read_tsv(show_col_types = FALSE)
+    }
   } else if (str_detect(datafile, "\\.toml")) {
     idx_data <- 
       datafile %>% 
@@ -368,6 +408,18 @@ write_esindex <- function(datafile, target_indexfile, index_id,
           mutate(dataset.filename = dataset.filename)
       }
   }
+  
+  # Type specific variables ahead of writing bulk index files (.ndjson) to disk
+  to_txt <- c("sample_freezethaw", "sample_fasting", "icd_o", "data_id", 
+              "event_type", "event_fasting")
+  for (txtvar in to_txt) {
+    if (txtvar %in% names(idx_data)) {
+      idx_data[[txtvar]] <- as.character(idx_data[[txtvar]])
+    } else {
+      next
+    }
+  }
+  
   docs_bulk_prep(
     idx_data, 
     index = index_id,
