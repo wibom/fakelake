@@ -122,7 +122,9 @@ They can be bulk loaded into Elasticsearch (using dynamic mappings) by running t
 
 As an initial setting, I am playing the Kibana dataviews (a.k.a "index-patterns" in ES < 8.x), based on the index naming scheme used (see: `dev/lake_settings.yaml`)
 
-* `events`
+* `*events`
+* `*--sample--events`
+* `*--questionnaire--events`
 * `datasets`
 * `*--analytes`
 * `*--vardict`
@@ -380,7 +382,6 @@ Is it worth while to set up a dynamic mapping template for each index?
       a non-exact way, one can use a `fuzzy` query.
       (https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-fuzzy-query.html) 
       <br>
-
         ```bash
         GET /_search
         {
