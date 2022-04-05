@@ -294,7 +294,8 @@ get_sample_metadata <- function(path_reference, predict_ids, vip_age,
     data_id = 
       get_dataidentifiers(abspath_dataset, data_type = data_type)[dataid_idx],
     
-    dataset.filename = relpath_dataset
+    dataset.filename = relpath_dataset,
+    dataset.datatype = data_type
   )  
   
 }
