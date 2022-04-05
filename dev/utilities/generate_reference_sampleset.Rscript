@@ -17,7 +17,7 @@ get_sampledates <- function(birth_date, age, interval, seed) {
   set.seed(seed)
   sample_date <- 
     birth_date + 
-    age + 
+    (age * 365) + 
     runif(length(birth_date), max = interval*365, min = -interval*365)
 }
 get_heights <- function(sex, seed) {
@@ -33,7 +33,6 @@ get_heights <- function(sex, seed) {
 }
 seed <- 42
 set.seed(seed)
-
 my_reference <- 
   tibble(
     predict_id = get_predictids(1:n),
