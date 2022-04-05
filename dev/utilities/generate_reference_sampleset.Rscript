@@ -20,6 +20,17 @@ get_sampledates <- function(birth_date, age, interval, seed) {
     age + 
     runif(length(birth_date), max = interval*365, min = -interval*365)
 }
+get_heights <- function(sex, seed) {
+  set.seed(seed)
+  random_heights <- 
+    tibble(
+      h_f = rnorm(length(sex), mean = 165, sd = 5), # female
+      h_m = rnorm(length(sex), mean = 178, sd = 6), # male
+      sex = sex,
+      height = if_else(sex == "f", h_f, h_m)
+    )
+  random_heights %>% pull(height)
+}
 seed <- 42
 set.seed(seed)
 
@@ -48,6 +59,8 @@ my_reference <-
     vip40_weight = rnorm(nrow(.), mean = 70, sd = 7),
     vip50_weight = vip40_weight + stats::runif(nrow(.), min = -2, max = 10),
     vip60_weight = vip50_weight + stats::runif(nrow(.), min = -2, max = 10),
+    
+    height = get_heights(sex, seed)
   )
 dir.create(dirname(abspath_reference), recursive = TRUE, showWarnings = FALSE)
 write_tsv(my_reference, file = abspath_reference)

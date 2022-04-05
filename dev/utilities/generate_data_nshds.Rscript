@@ -55,7 +55,10 @@ nshds_individuals <-
     cols = vip40_date:vip60_weight,  
     names_to = c("VIP_yr", ".value"),
     names_pattern = "^vip(\\d{2})_(\\w+)"
-  )   
+  ) %>% 
+  mutate(
+    bmi = weight / (height / 100)^2 # fit mock-data from reference
+  )
 
 ## NSHDS template ----
 nshds_template <- 
@@ -71,9 +74,9 @@ nshds_template <-
       enk = "c",
       fasta_enk = "c",
       fasta_prov = "c", 
-      langd = "n", 
-      vikt = "n", 
-      bmi = "n", 
+      # langd = "n",
+      # vikt = "n",
+      # bmi = "n",
       midja = "n", 
       skol = "n", 
       skol_mo = "n", 
@@ -94,7 +97,6 @@ vip_template <-
   filter(delproj == "VIP") %>% 
   slice(1:nrow(nshds_individuals)) %>% 
   select(-pin, pdatum, q_date)
-
 nshds_vip <- 
   nshds_individuals %>% 
   bind_cols(vip_template) %>% 
@@ -104,13 +106,12 @@ nshds_vip <-
     # `date` represents the mock sample date used together with various 
     # mock datasets. 
     pdatum = date,
-    q_date = pdatum + diff_samp_qnr,
-    vikt = weight,               # use the made up values from `individuals`
-    langd = sqrt(vikt/bmi) * 100 # recalculate length to fit made-up `weight`
-    
+    q_date = pdatum + diff_samp_qnr
+#    vikt = weight,               # use the made up values from `individuals`
+#    langd = sqrt(vikt/bmi) * 100 # recalculate length to fit made-up `weight`
   ) %>% 
   select(
-    -c(birth_date, VIP_yr, weight, date, diff_samp_qnr)
+    -c(birth_date, VIP_yr, date, diff_samp_qnr)
   ) %>% 
   relocate(
     pat_code, .after = predict_id
@@ -131,8 +132,7 @@ mo_template <-
     predict_id = my_reference$predict_id[1:mo_n], 
     sex = my_reference$sex[1:mo_n]
   ) %>% 
-  select(all_of(names(nshds_vip)), diff_samp_qnr)
-
+  select(all_of(names(vip_template)), predict_id, sex)
 
 set.seed(42)
 nshds_mo <- 
@@ -149,15 +149,16 @@ nshds_mo <-
   # get weight and height from `my_reference`
   left_join(
     # use mock weight at 50yo
-    select(my_reference, predict_id, vip50_weight), 
+    select(my_reference, predict_id, weight = vip50_weight, height), 
     by = "predict_id"
   ) %>% 
   mutate(
     # adjust height to fit bmi
-    vikt = vip50_weight, # use the made up values from `individuals`
-    langd = sqrt(vikt/bmi) * 100
+    # vikt = vip50_weight, # use the made up values from `individuals`
+    # langd = sqrt(vikt/bmi) * 100
+    bmi = weight / (height / 100)^2 # fit mock-data from reference
   ) %>% 
-  select(-c(diff_samp_qnr, vip50_weight))
+  select(-diff_samp_qnr)
 
 
 ## MA ----
@@ -174,7 +175,7 @@ ma_template <-
     predict_id = filter(my_reference, sex == "f")$predict_id[1:ma_n], 
     sex = "f"
   ) %>% 
-  select(all_of(names(nshds_vip)), diff_samp_qnr)
+  select(all_of(names(vip_template)), predict_id, sex)
 
 set.seed(42)
 nshds_ma <- 
@@ -191,15 +192,16 @@ nshds_ma <-
   # get weight and hight from `individuals`
   left_join(
     # use mock weight at 50yo
-    select(my_reference, predict_id, vip50_weight), 
+    select(my_reference, predict_id, weight = vip50_weight, height), 
     by = "predict_id"
   ) %>% 
   mutate(
     # adjust height to fit bmi
-    vikt = vip50_weight, # use the made up values from `individuals`
-    langd = sqrt(vikt/bmi) * 100
+    # vikt = vip50_weight, # use the made up values from `individuals`
+    # langd = sqrt(vikt/bmi) * 100
+    bmi = weight / (height / 100)^2 # fit mock-data from reference
   ) %>% 
-  select(-c(diff_samp_qnr, vip50_weight))
+  select(-diff_samp_qnr)
 
 
 ## write to disk ----
@@ -269,7 +271,7 @@ nshds_questionnaire_meta_event <-
   nshds %>% 
   select(
     # drop health data
-    -c(pdatum, fasta_prov, langd, vikt, bmi, midja, skol, skol_mo, hdl, ldl, 
+    -c(pdatum, fasta_prov, height, weight, bmi, midja, skol, skol_mo, hdl, ldl, 
        stg, stg_mo, blods0, blods2
       )
   ) %>% 
