@@ -54,9 +54,10 @@ system(
 
 # Omics-data ----
 # A few mock datasets
-datadirs <- names(lakesettings)[str_detect(names(lakesettings), "dir_")]
+datadirs <- names(lakesettings)[str_detect(names(lakesettings), "x")]
 for (mydir in datadirs) {
-  dir_id      <- lakesettings[[mydir]]$id
+  #dir_id      <- lakesettings[[mydir]]$id
+  dir_id      <- mydir
   individuals <- lakesettings[[mydir]]$individuals
   datasets    <- lakesettings[[mydir]]$datasets %>% names()
   
